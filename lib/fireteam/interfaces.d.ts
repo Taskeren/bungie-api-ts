@@ -11,32 +11,37 @@
  */
 import { BungieMembershipType, PagedQuery } from '../common.js';
 import { UserInfoCard } from '../user/interfaces.js';
-export declare const enum FireteamDateRange {
-  All = 0,
-  Now = 1,
-  TwentyFourHours = 2,
-  FortyEightHours = 3,
-  ThisWeek = 4,
-}
-export declare const enum FireteamPlatform {
-  Any = 0,
-  Playstation4 = 1,
-  XboxOne = 2,
-  Blizzard = 3,
-  Steam = 4,
-  Stadia = 5,
-  Egs = 6,
-}
-export declare const enum FireteamPublicSearchOption {
-  PublicAndPrivate = 0,
-  PublicOnly = 1,
-  PrivateOnly = 2,
-}
-export declare const enum FireteamSlotSearch {
-  NoSlotRestriction = 0,
-  HasOpenPlayerSlots = 1,
-  HasOpenPlayerOrAltSlots = 2,
-}
+export declare const FireteamDateRange: {
+  readonly All: 0;
+  readonly Now: 1;
+  readonly TwentyFourHours: 2;
+  readonly FortyEightHours: 3;
+  readonly ThisWeek: 4;
+};
+export type FireteamDateRange = (typeof FireteamDateRange)[keyof typeof FireteamDateRange];
+export declare const FireteamPlatform: {
+  readonly Any: 0;
+  readonly Playstation4: 1;
+  readonly XboxOne: 2;
+  readonly Blizzard: 3;
+  readonly Steam: 4;
+  readonly Stadia: 5;
+  readonly Egs: 6;
+};
+export type FireteamPlatform = (typeof FireteamPlatform)[keyof typeof FireteamPlatform];
+export declare const FireteamPublicSearchOption: {
+  readonly PublicAndPrivate: 0;
+  readonly PublicOnly: 1;
+  readonly PrivateOnly: 2;
+};
+export type FireteamPublicSearchOption =
+  (typeof FireteamPublicSearchOption)[keyof typeof FireteamPublicSearchOption];
+export declare const FireteamSlotSearch: {
+  readonly NoSlotRestriction: 0;
+  readonly HasOpenPlayerSlots: 1;
+  readonly HasOpenPlayerOrAltSlots: 2;
+};
+export type FireteamSlotSearch = (typeof FireteamSlotSearch)[keyof typeof FireteamSlotSearch];
 export interface SearchResultOfFireteamSummary {
   readonly results: FireteamSummary[];
   readonly totalResults: number;
@@ -157,10 +162,12 @@ export interface FireteamUserInfoCard {
   /** The bungie global display name code, if set. */
   readonly bungieGlobalDisplayNameCode?: number;
 }
-export declare const enum FireteamPlatformInviteResult {
-  None = 0,
-  Success = 1,
-  AlreadyInFireteam = 2,
-  Throttled = 3,
-  ServiceError = 4,
-}
+export declare const FireteamPlatformInviteResult: {
+  readonly None: 0;
+  readonly Success: 1;
+  readonly AlreadyInFireteam: 2;
+  readonly Throttled: 3;
+  readonly ServiceError: 4;
+};
+export type FireteamPlatformInviteResult =
+  (typeof FireteamPlatformInviteResult)[keyof typeof FireteamPlatformInviteResult];

@@ -134,17 +134,19 @@ export interface GlobalAlert {
   readonly StreamInfo: StreamInfo;
 }
 
-export const enum GlobalAlertLevel {
-  Unknown = 0,
-  Blue = 1,
-  Yellow = 2,
-  Red = 3
-}
+export const GlobalAlertLevel = {
+  Unknown: 0,
+  Blue: 1,
+  Yellow: 2,
+  Red: 3
+} as const;
+export type GlobalAlertLevel = typeof GlobalAlertLevel[keyof typeof GlobalAlertLevel];
 
-export const enum GlobalAlertType {
-  GlobalAlert = 0,
-  StreamingAlert = 1
-}
+export const GlobalAlertType = {
+  GlobalAlert: 0,
+  StreamingAlert: 1
+} as const;
+export type GlobalAlertType = typeof GlobalAlertType[keyof typeof GlobalAlertType];
 
 export interface StreamInfo {
   readonly ChannelName: string;

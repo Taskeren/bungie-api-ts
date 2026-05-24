@@ -21,15 +21,16 @@ export interface IgnoreResponse {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export declare const enum IgnoreStatus {
-    NotIgnored = 0,
-    IgnoredUser = 1,
-    IgnoredGroup = 2,
-    IgnoredByGroup = 4,
-    IgnoredPost = 8,
-    IgnoredTag = 16,
-    IgnoredGlobal = 32
-}
+export declare const IgnoreStatus: {
+    readonly NotIgnored: 0;
+    readonly IgnoredUser: 1;
+    readonly IgnoredGroup: 2;
+    readonly IgnoredByGroup: 4;
+    readonly IgnoredPost: 8;
+    readonly IgnoredTag: 16;
+    readonly IgnoredGlobal: 32;
+};
+export type IgnoreStatus = typeof IgnoreStatus[keyof typeof IgnoreStatus];
 export interface TagResponse {
     readonly tagText: string;
     readonly ignoreStatus: IgnoreResponse;

@@ -129,33 +129,38 @@ export interface GroupV2 {
   readonly clanInfo: GroupV2ClanInfoAndInvestment;
 }
 
-export const enum GroupType {
-  General = 0,
-  Clan = 1
-}
+export const GroupType = {
+  General: 0,
+  Clan: 1
+} as const;
+export type GroupType = typeof GroupType[keyof typeof GroupType];
 
-export const enum ChatSecuritySetting {
-  Group = 0,
-  Admins = 1
-}
+export const ChatSecuritySetting = {
+  Group: 0,
+  Admins: 1
+} as const;
+export type ChatSecuritySetting = typeof ChatSecuritySetting[keyof typeof ChatSecuritySetting];
 
-export const enum GroupHomepage {
-  Wall = 0,
-  Forum = 1,
-  AllianceForum = 2
-}
+export const GroupHomepage = {
+  Wall: 0,
+  Forum: 1,
+  AllianceForum: 2
+} as const;
+export type GroupHomepage = typeof GroupHomepage[keyof typeof GroupHomepage];
 
-export const enum MembershipOption {
-  Reviewed = 0,
-  Open = 1,
-  Closed = 2
-}
+export const MembershipOption = {
+  Reviewed: 0,
+  Open: 1,
+  Closed: 2
+} as const;
+export type MembershipOption = typeof MembershipOption[keyof typeof MembershipOption];
 
-export const enum GroupPostPublicity {
-  Public = 0,
-  Alliance = 1,
-  Private = 2
-}
+export const GroupPostPublicity = {
+  Public: 0,
+  Alliance: 1,
+  Private: 2
+} as const;
+export type GroupPostPublicity = typeof GroupPostPublicity[keyof typeof GroupPostPublicity];
 
 export interface GroupFeatures {
   readonly maximumMembers: number;
@@ -225,26 +230,28 @@ export interface GroupFeatures {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum Capabilities {
-  None = 0,
-  Leaderboards = 1,
-  Callsign = 2,
-  OptionalConversations = 4,
-  ClanBanner = 8,
-  D2InvestmentData = 16,
-  Tags = 32,
-  Alliances = 64
-}
+export const Capabilities = {
+  None: 0,
+  Leaderboards: 1,
+  Callsign: 2,
+  OptionalConversations: 4,
+  ClanBanner: 8,
+  D2InvestmentData: 16,
+  Tags: 32,
+  Alliances: 64
+} as const;
+export type Capabilities = typeof Capabilities[keyof typeof Capabilities];
 
 /**
  * Used for setting the guided game permission level override (admins and founders
  * can always host guided games).
  */
-export const enum HostGuidedGamesPermissionLevel {
-  None = 0,
-  Beginner = 1,
-  Member = 2
-}
+export const HostGuidedGamesPermissionLevel = {
+  None: 0,
+  Beginner: 1,
+  Member: 2
+} as const;
+export type HostGuidedGamesPermissionLevel = typeof HostGuidedGamesPermissionLevel[keyof typeof HostGuidedGamesPermissionLevel];
 
 /**
  * The member levels used by all V2 Groups API. Individual group types use their
@@ -253,14 +260,15 @@ export const enum HostGuidedGamesPermissionLevel {
  * api. These runtime values should NEVER be stored anywhere, so the values can be
  * changed as necessary.
  */
-export const enum RuntimeGroupMemberType {
-  None = 0,
-  Beginner = 1,
-  Member = 2,
-  Admin = 3,
-  ActingFounder = 4,
-  Founder = 5
-}
+export const RuntimeGroupMemberType = {
+  None: 0,
+  Beginner: 1,
+  Member: 2,
+  Admin: 3,
+  ActingFounder: 4,
+  Founder: 5
+} as const;
+export type RuntimeGroupMemberType = typeof RuntimeGroupMemberType[keyof typeof RuntimeGroupMemberType];
 
 /** The same as GroupV2ClanInfo, but includes any investment data. */
 export interface GroupV2ClanInfoAndInvestment {
@@ -289,11 +297,12 @@ export interface GroupMember {
   readonly joinDate: string;
 }
 
-export const enum GroupAllianceStatus {
-  Unallied = 0,
-  Parent = 1,
-  Child = 2
-}
+export const GroupAllianceStatus = {
+  Unallied: 0,
+  Parent: 1,
+  Child: 2
+} as const;
+export type GroupAllianceStatus = typeof GroupAllianceStatus[keyof typeof GroupAllianceStatus];
 
 export interface GroupPotentialMember {
   readonly potentialStatus: GroupPotentialMemberStatus;
@@ -303,19 +312,21 @@ export interface GroupPotentialMember {
   readonly joinDate: string;
 }
 
-export const enum GroupPotentialMemberStatus {
-  None = 0,
-  Applicant = 1,
-  Invitee = 2
-}
+export const GroupPotentialMemberStatus = {
+  None: 0,
+  Applicant: 1,
+  Invitee: 2
+} as const;
+export type GroupPotentialMemberStatus = typeof GroupPotentialMemberStatus[keyof typeof GroupPotentialMemberStatus];
 
-export const enum GroupDateRange {
-  All = 0,
-  PastDay = 1,
-  PastWeek = 2,
-  PastMonth = 3,
-  PastYear = 4
-}
+export const GroupDateRange = {
+  All: 0,
+  PastDay: 1,
+  PastWeek: 2,
+  PastMonth: 3,
+  PastYear: 4
+} as const;
+export type GroupDateRange = typeof GroupDateRange[keyof typeof GroupDateRange];
 
 /**
  * NOTE: GroupQuery, as of Destiny 2, has essentially two totally different and
@@ -444,11 +455,12 @@ export interface GroupApplicationListRequest {
   readonly message: string;
 }
 
-export const enum GroupsForMemberFilter {
-  All = 0,
-  Founded = 1,
-  NonFounded = 2
-}
+export const GroupsForMemberFilter = {
+  All: 0,
+  Founded: 1,
+  NonFounded: 2
+} as const;
+export type GroupsForMemberFilter = typeof GroupsForMemberFilter[keyof typeof GroupsForMemberFilter];
 
 export interface GroupTheme {
   readonly name: string;
@@ -490,19 +502,21 @@ export interface GroupV2ClanInfo {
   readonly clanBannerData: ClanBanner;
 }
 
-export const enum GroupSortBy {
-  Name = 0,
-  Date = 1,
-  Popularity = 2,
-  Id = 3
-}
+export const GroupSortBy = {
+  Name: 0,
+  Date: 1,
+  Popularity: 2,
+  Id: 3
+} as const;
+export type GroupSortBy = typeof GroupSortBy[keyof typeof GroupSortBy];
 
-export const enum GroupMemberCountFilter {
-  All = 0,
-  OneToTen = 1,
-  ElevenToOneHundred = 2,
-  GreaterThanOneHundred = 3
-}
+export const GroupMemberCountFilter = {
+  All: 0,
+  OneToTen: 1,
+  ElevenToOneHundred: 2,
+  GreaterThanOneHundred: 3
+} as const;
+export type GroupMemberCountFilter = typeof GroupMemberCountFilter[keyof typeof GroupMemberCountFilter];
 
 export interface GroupSearchResponse {
   readonly results: GroupV2Card[];
@@ -559,20 +573,21 @@ export interface GroupMemberLeaveResult {
   readonly groupDeleted: boolean;
 }
 
-export const enum IgnoreLength {
-  None = 0,
-  Week = 1,
-  TwoWeeks = 2,
-  ThreeWeeks = 3,
-  Month = 4,
-  ThreeMonths = 5,
-  SixMonths = 6,
-  Year = 7,
-  Forever = 8,
-  ThreeMinutes = 9,
-  Hour = 10,
-  ThirtyDays = 11
-}
+export const IgnoreLength = {
+  None: 0,
+  Week: 1,
+  TwoWeeks: 2,
+  ThreeWeeks: 3,
+  Month: 4,
+  ThreeMonths: 5,
+  SixMonths: 6,
+  Year: 7,
+  Forever: 8,
+  ThreeMinutes: 9,
+  Hour: 10,
+  ThirtyDays: 11
+} as const;
+export type IgnoreLength = typeof IgnoreLength[keyof typeof IgnoreLength];
 
 export interface SearchResultOfGroupBan {
   readonly results: GroupBan[];
@@ -674,12 +689,13 @@ export interface GroupMemberApplication {
   readonly bungieNetUserInfo: UserInfoCard;
 }
 
-export const enum GroupApplicationResolveState {
-  Unresolved = 0,
-  Accepted = 1,
-  Denied = 2,
-  Rescinded = 3
-}
+export const GroupApplicationResolveState = {
+  Unresolved: 0,
+  Accepted: 1,
+  Denied: 2,
+  Rescinded: 3
+} as const;
+export type GroupApplicationResolveState = typeof GroupApplicationResolveState[keyof typeof GroupApplicationResolveState];
 
 export interface EntityActionResult {
   readonly entityId: string;

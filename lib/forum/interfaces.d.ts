@@ -17,38 +17,44 @@ import { PagedQuery } from '../common.js';
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export declare const enum ForumTopicsCategoryFiltersEnum {
-  None = 0,
-  Links = 1,
-  Questions = 2,
-  AnsweredQuestions = 4,
-  Media = 8,
-  TextOnly = 16,
-  Announcement = 32,
-  BungieOfficial = 64,
-  Polls = 128,
-}
-export declare const enum ForumTopicsQuickDateEnum {
-  All = 0,
-  LastYear = 1,
-  LastMonth = 2,
-  LastWeek = 3,
-  LastDay = 4,
-}
-export declare const enum ForumTopicsSortEnum {
-  Default = 0,
-  LastReplied = 1,
-  MostReplied = 2,
-  Popularity = 3,
-  Controversiality = 4,
-  Liked = 5,
-  HighestRated = 6,
-  MostUpvoted = 7,
-}
-export declare const enum ForumPostSortEnum {
-  Default = 0,
-  OldestFirst = 1,
-}
+export declare const ForumTopicsCategoryFiltersEnum: {
+  readonly None: 0;
+  readonly Links: 1;
+  readonly Questions: 2;
+  readonly AnsweredQuestions: 4;
+  readonly Media: 8;
+  readonly TextOnly: 16;
+  readonly Announcement: 32;
+  readonly BungieOfficial: 64;
+  readonly Polls: 128;
+};
+export type ForumTopicsCategoryFiltersEnum =
+  (typeof ForumTopicsCategoryFiltersEnum)[keyof typeof ForumTopicsCategoryFiltersEnum];
+export declare const ForumTopicsQuickDateEnum: {
+  readonly All: 0;
+  readonly LastYear: 1;
+  readonly LastMonth: 2;
+  readonly LastWeek: 3;
+  readonly LastDay: 4;
+};
+export type ForumTopicsQuickDateEnum =
+  (typeof ForumTopicsQuickDateEnum)[keyof typeof ForumTopicsQuickDateEnum];
+export declare const ForumTopicsSortEnum: {
+  readonly Default: 0;
+  readonly LastReplied: 1;
+  readonly MostReplied: 2;
+  readonly Popularity: 3;
+  readonly Controversiality: 4;
+  readonly Liked: 5;
+  readonly HighestRated: 6;
+  readonly MostUpvoted: 7;
+};
+export type ForumTopicsSortEnum = (typeof ForumTopicsSortEnum)[keyof typeof ForumTopicsSortEnum];
+export declare const ForumPostSortEnum: {
+  readonly Default: 0;
+  readonly OldestFirst: 1;
+};
+export type ForumPostSortEnum = (typeof ForumPostSortEnum)[keyof typeof ForumPostSortEnum];
 export interface PostSearchResponse {
   readonly relatedPosts: PostResponse[];
   readonly authors: GeneralUser[];
@@ -92,20 +98,22 @@ export interface PostResponse {
   readonly ignoreStatus: IgnoreResponse;
   readonly locale: string;
 }
-export declare const enum ForumMediaType {
-  None = 0,
-  Image = 1,
-  Video = 2,
-  Youtube = 3,
-}
-export declare const enum ForumPostPopularity {
-  Empty = 0,
-  Default = 1,
-  Discussed = 2,
-  CoolStory = 3,
-  HeatingUp = 4,
-  Hot = 5,
-}
+export declare const ForumMediaType: {
+  readonly None: 0;
+  readonly Image: 1;
+  readonly Video: 2;
+  readonly Youtube: 3;
+};
+export type ForumMediaType = (typeof ForumMediaType)[keyof typeof ForumMediaType];
+export declare const ForumPostPopularity: {
+  readonly Empty: 0;
+  readonly Default: 1;
+  readonly Discussed: 2;
+  readonly CoolStory: 3;
+  readonly HeatingUp: 4;
+  readonly Hot: 5;
+};
+export type ForumPostPopularity = (typeof ForumPostPopularity)[keyof typeof ForumPostPopularity];
 export interface PollResponse {
   readonly topicId: string;
   readonly results: PollResult[];
@@ -130,18 +138,24 @@ export interface ForumRecruitmentDetail {
   readonly Fireteam: GeneralUser[];
   readonly kickedPlayerIds: string[];
 }
-export declare const enum ForumRecruitmentIntensityLabel {
-  None = 0,
-  Casual = 1,
-  Professional = 2,
-}
-export declare const enum ForumRecruitmentToneLabel {
-  None = 0,
-  FamilyFriendly = 1,
-  Rowdy = 2,
-}
-export declare const enum CommunityContentSortMode {
-  Trending = 0,
-  Latest = 1,
-  HighestRated = 2,
-}
+export declare const ForumRecruitmentIntensityLabel: {
+  readonly None: 0;
+  readonly Casual: 1;
+  readonly Professional: 2;
+};
+export type ForumRecruitmentIntensityLabel =
+  (typeof ForumRecruitmentIntensityLabel)[keyof typeof ForumRecruitmentIntensityLabel];
+export declare const ForumRecruitmentToneLabel: {
+  readonly None: 0;
+  readonly FamilyFriendly: 1;
+  readonly Rowdy: 2;
+};
+export type ForumRecruitmentToneLabel =
+  (typeof ForumRecruitmentToneLabel)[keyof typeof ForumRecruitmentToneLabel];
+export declare const CommunityContentSortMode: {
+  readonly Trending: 0;
+  readonly Latest: 1;
+  readonly HighestRated: 2;
+};
+export type CommunityContentSortMode =
+  (typeof CommunityContentSortMode)[keyof typeof CommunityContentSortMode];

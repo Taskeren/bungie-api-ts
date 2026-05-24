@@ -28,41 +28,45 @@ import {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum ForumTopicsCategoryFiltersEnum {
-  None = 0,
-  Links = 1,
-  Questions = 2,
-  AnsweredQuestions = 4,
-  Media = 8,
-  TextOnly = 16,
-  Announcement = 32,
-  BungieOfficial = 64,
-  Polls = 128
-}
+export const ForumTopicsCategoryFiltersEnum = {
+  None: 0,
+  Links: 1,
+  Questions: 2,
+  AnsweredQuestions: 4,
+  Media: 8,
+  TextOnly: 16,
+  Announcement: 32,
+  BungieOfficial: 64,
+  Polls: 128
+} as const;
+export type ForumTopicsCategoryFiltersEnum = typeof ForumTopicsCategoryFiltersEnum[keyof typeof ForumTopicsCategoryFiltersEnum];
 
-export const enum ForumTopicsQuickDateEnum {
-  All = 0,
-  LastYear = 1,
-  LastMonth = 2,
-  LastWeek = 3,
-  LastDay = 4
-}
+export const ForumTopicsQuickDateEnum = {
+  All: 0,
+  LastYear: 1,
+  LastMonth: 2,
+  LastWeek: 3,
+  LastDay: 4
+} as const;
+export type ForumTopicsQuickDateEnum = typeof ForumTopicsQuickDateEnum[keyof typeof ForumTopicsQuickDateEnum];
 
-export const enum ForumTopicsSortEnum {
-  Default = 0,
-  LastReplied = 1,
-  MostReplied = 2,
-  Popularity = 3,
-  Controversiality = 4,
-  Liked = 5,
-  HighestRated = 6,
-  MostUpvoted = 7
-}
+export const ForumTopicsSortEnum = {
+  Default: 0,
+  LastReplied: 1,
+  MostReplied: 2,
+  Popularity: 3,
+  Controversiality: 4,
+  Liked: 5,
+  HighestRated: 6,
+  MostUpvoted: 7
+} as const;
+export type ForumTopicsSortEnum = typeof ForumTopicsSortEnum[keyof typeof ForumTopicsSortEnum];
 
-export const enum ForumPostSortEnum {
-  Default = 0,
-  OldestFirst = 1
-}
+export const ForumPostSortEnum = {
+  Default: 0,
+  OldestFirst: 1
+} as const;
+export type ForumPostSortEnum = typeof ForumPostSortEnum[keyof typeof ForumPostSortEnum];
 
 export interface PostSearchResponse {
   readonly relatedPosts: PostResponse[];
@@ -109,21 +113,23 @@ export interface PostResponse {
   readonly locale: string;
 }
 
-export const enum ForumMediaType {
-  None = 0,
-  Image = 1,
-  Video = 2,
-  Youtube = 3
-}
+export const ForumMediaType = {
+  None: 0,
+  Image: 1,
+  Video: 2,
+  Youtube: 3
+} as const;
+export type ForumMediaType = typeof ForumMediaType[keyof typeof ForumMediaType];
 
-export const enum ForumPostPopularity {
-  Empty = 0,
-  Default = 1,
-  Discussed = 2,
-  CoolStory = 3,
-  HeatingUp = 4,
-  Hot = 5
-}
+export const ForumPostPopularity = {
+  Empty: 0,
+  Default: 1,
+  Discussed: 2,
+  CoolStory: 3,
+  HeatingUp: 4,
+  Hot: 5
+} as const;
+export type ForumPostPopularity = typeof ForumPostPopularity[keyof typeof ForumPostPopularity];
 
 export interface PollResponse {
   readonly topicId: string;
@@ -152,20 +158,23 @@ export interface ForumRecruitmentDetail {
   readonly kickedPlayerIds: string[];
 }
 
-export const enum ForumRecruitmentIntensityLabel {
-  None = 0,
-  Casual = 1,
-  Professional = 2
-}
+export const ForumRecruitmentIntensityLabel = {
+  None: 0,
+  Casual: 1,
+  Professional: 2
+} as const;
+export type ForumRecruitmentIntensityLabel = typeof ForumRecruitmentIntensityLabel[keyof typeof ForumRecruitmentIntensityLabel];
 
-export const enum ForumRecruitmentToneLabel {
-  None = 0,
-  FamilyFriendly = 1,
-  Rowdy = 2
-}
+export const ForumRecruitmentToneLabel = {
+  None: 0,
+  FamilyFriendly: 1,
+  Rowdy: 2
+} as const;
+export type ForumRecruitmentToneLabel = typeof ForumRecruitmentToneLabel[keyof typeof ForumRecruitmentToneLabel];
 
-export const enum CommunityContentSortMode {
-  Trending = 0,
-  Latest = 1,
-  HighestRated = 2
-}
+export const CommunityContentSortMode = {
+  Trending: 0,
+  Latest: 1,
+  HighestRated: 2
+} as const;
+export type CommunityContentSortMode = typeof CommunityContentSortMode[keyof typeof CommunityContentSortMode];

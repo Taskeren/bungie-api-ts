@@ -81,7 +81,7 @@ function generateEnum(defInfo: DefInfo, component: SchemaObject) {
   const values = component['x-enum-values']
     .map((value: SchemaObject) => {
       const doc = value.description ? docComment(value.description) + '\n' : '';
-      return `${doc}${value.identifier} = ${value.numericValue}`;
+      return `${doc}${value.identifier}: ${value.numericValue}`;
     })
     .join(',\n');
 
@@ -96,9 +96,15 @@ function generateEnum(defInfo: DefInfo, component: SchemaObject) {
 
   // TODO: const enums are super efficient (they get inlined) but we may want to change this if we want to do things like
   // print out the name of an enum case.
+  /*
   return `${docString}export const enum ${defInfo.interfaceName} {
 ${indent(values, 1)}
 }`;
+  */
+  return `${docString}export const ${defInfo.interfaceName} = {
+${indent(values, 1)}
+} as const;
+export type ${defInfo.interfaceName} = typeof ${defInfo.interfaceName}[keyof typeof ${defInfo.interfaceName}];`
 }
 
 function generateInterfaceSchema(

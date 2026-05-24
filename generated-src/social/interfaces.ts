@@ -17,13 +17,14 @@ import {
   GeneralUser
 } from '../user/interfaces.js';
 
-export const enum PlatformFriendType {
-  Unknown = 0,
-  Xbox = 1,
-  PSN = 2,
-  Steam = 3,
-  Egs = 4
-}
+export const PlatformFriendType = {
+  Unknown: 0,
+  Xbox: 1,
+  PSN: 2,
+  Steam: 3,
+  Egs: 4
+} as const;
+export type PlatformFriendType = typeof PlatformFriendType[keyof typeof PlatformFriendType];
 
 export interface BungieFriendListResponse {
   readonly friends: BungieFriend[];
@@ -44,27 +45,30 @@ export interface BungieFriend {
   readonly bungieNetUser: GeneralUser;
 }
 
-export const enum PresenceStatus {
-  OfflineOrUnknown = 0,
-  Online = 1
-}
+export const PresenceStatus = {
+  OfflineOrUnknown: 0,
+  Online: 1
+} as const;
+export type PresenceStatus = typeof PresenceStatus[keyof typeof PresenceStatus];
 
 /**
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum PresenceOnlineStateFlags {
-  None = 0,
-  Destiny1 = 1,
-  Destiny2 = 2
-}
+export const PresenceOnlineStateFlags = {
+  None: 0,
+  Destiny1: 1,
+  Destiny2: 2
+} as const;
+export type PresenceOnlineStateFlags = typeof PresenceOnlineStateFlags[keyof typeof PresenceOnlineStateFlags];
 
-export const enum FriendRelationshipState {
-  Unknown = 0,
-  Friend = 1,
-  IncomingRequest = 2,
-  OutgoingRequest = 3
-}
+export const FriendRelationshipState = {
+  Unknown: 0,
+  Friend: 1,
+  IncomingRequest: 2,
+  OutgoingRequest: 3
+} as const;
+export type FriendRelationshipState = typeof FriendRelationshipState[keyof typeof FriendRelationshipState];
 
 export interface BungieFriendRequestListResponse {
   readonly incomingRequests: BungieFriend[];

@@ -63,22 +63,23 @@ export interface UserInfoCard {
  * facing enum used in place of the internal-only Bungie.SharedDefinitions.
  * CredentialType.
  */
-export declare const enum BungieCredentialType {
-  None = 0,
-  Xuid = 1,
-  Psnid = 2,
-  Wlid = 3,
-  Fake = 4,
-  Facebook = 5,
-  Google = 8,
-  Windows = 9,
-  DemonId = 10,
-  SteamId = 12,
-  BattleNetId = 14,
-  StadiaId = 16,
-  TwitchId = 18,
-  EgsId = 20,
-}
+export declare const BungieCredentialType: {
+  readonly None: 0;
+  readonly Xuid: 1;
+  readonly Psnid: 2;
+  readonly Wlid: 3;
+  readonly Fake: 4;
+  readonly Facebook: 5;
+  readonly Google: 8;
+  readonly Windows: 9;
+  readonly DemonId: 10;
+  readonly SteamId: 12;
+  readonly BattleNetId: 14;
+  readonly StadiaId: 16;
+  readonly TwitchId: 18;
+  readonly EgsId: 20;
+};
+export type BungieCredentialType = (typeof BungieCredentialType)[keyof typeof BungieCredentialType];
 export interface UserSearchPrefixRequest {
   readonly displayNamePrefix: string;
 }
@@ -237,18 +238,19 @@ export interface EmailOptInDefinition {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export declare const enum OptInFlags {
-  None = 0,
-  Newsletter = 1,
-  System = 2,
-  Marketing = 4,
-  UserResearch = 8,
-  CustomerService = 16,
-  Social = 32,
-  PlayTests = 64,
-  PlayTestsLocal = 128,
-  Careers = 256,
-}
+export declare const OptInFlags: {
+  readonly None: 0;
+  readonly Newsletter: 1;
+  readonly System: 2;
+  readonly Marketing: 4;
+  readonly UserResearch: 8;
+  readonly CustomerService: 16;
+  readonly Social: 32;
+  readonly PlayTests: 64;
+  readonly PlayTestsLocal: 128;
+  readonly Careers: 256;
+};
+export type OptInFlags = (typeof OptInFlags)[keyof typeof OptInFlags];
 /**
  * Defines a single subscription: permission to send emails for a specific, focused
  * subject (generally timeboxed, such as for a specific release of a product or

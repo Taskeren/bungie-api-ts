@@ -72,22 +72,23 @@ export interface UserInfoCard {
  * facing enum used in place of the internal-only Bungie.SharedDefinitions.
  * CredentialType.
  */
-export const enum BungieCredentialType {
-  None = 0,
-  Xuid = 1,
-  Psnid = 2,
-  Wlid = 3,
-  Fake = 4,
-  Facebook = 5,
-  Google = 8,
-  Windows = 9,
-  DemonId = 10,
-  SteamId = 12,
-  BattleNetId = 14,
-  StadiaId = 16,
-  TwitchId = 18,
-  EgsId = 20
-}
+export const BungieCredentialType = {
+  None: 0,
+  Xuid: 1,
+  Psnid: 2,
+  Wlid: 3,
+  Fake: 4,
+  Facebook: 5,
+  Google: 8,
+  Windows: 9,
+  DemonId: 10,
+  SteamId: 12,
+  BattleNetId: 14,
+  StadiaId: 16,
+  TwitchId: 18,
+  EgsId: 20
+} as const;
+export type BungieCredentialType = typeof BungieCredentialType[keyof typeof BungieCredentialType];
 
 export interface UserSearchPrefixRequest {
   readonly displayNamePrefix: string;
@@ -254,18 +255,19 @@ export interface EmailOptInDefinition {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum OptInFlags {
-  None = 0,
-  Newsletter = 1,
-  System = 2,
-  Marketing = 4,
-  UserResearch = 8,
-  CustomerService = 16,
-  Social = 32,
-  PlayTests = 64,
-  PlayTestsLocal = 128,
-  Careers = 256
-}
+export const OptInFlags = {
+  None: 0,
+  Newsletter: 1,
+  System: 2,
+  Marketing: 4,
+  UserResearch: 8,
+  CustomerService: 16,
+  Social: 32,
+  PlayTests: 64,
+  PlayTestsLocal: 128,
+  Careers: 256
+} as const;
+export type OptInFlags = typeof OptInFlags[keyof typeof OptInFlags];
 
 /**
  * Defines a single subscription: permission to send emails for a specific, focused

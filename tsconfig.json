@@ -10,7 +10,8 @@
     "moduleResolution": "NodeNext",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "allowJs": true
+    "allowJs": true,
+    "preserveConstEnums": true
   },
   "include": ["./generator/**/*"]
 }

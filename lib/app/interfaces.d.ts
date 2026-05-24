@@ -61,48 +61,51 @@ export interface Application {
   /** An optional override for the Authorize view name. */
   readonly overrideAuthorizeViewName: string;
 }
-export declare const enum OAuthApplicationType {
-  None = 0,
+export declare const OAuthApplicationType: {
+  readonly None: 0;
   /**
    * Indicates the application is server based and can keep its secrets from end
    * users and other potential snoops.
    */
-  Confidential = 1,
+  readonly Confidential: 1;
   /**
    * Indicates the application runs in a public place, and it can't be trusted to
    * keep a secret.
    */
-  Public = 2,
-}
-export declare const enum ApplicationStatus {
+  readonly Public: 2;
+};
+export type OAuthApplicationType = (typeof OAuthApplicationType)[keyof typeof OAuthApplicationType];
+export declare const ApplicationStatus: {
   /** No value assigned */
-  None = 0,
+  readonly None: 0;
   /**
    * Application exists and works but will not appear in any public catalog. New
    * applications start in this state, test applications will remain in this state.
    */
-  Private = 1,
+  readonly Private: 1;
   /** Active applications that can appear in an catalog. */
-  Public = 2,
+  readonly Public: 2;
   /**
    * Application disabled by the owner. All authorizations will be treated as
    * terminated while in this state. Owner can move back to private or public state.
    */
-  Disabled = 3,
+  readonly Disabled: 3;
   /**
    * Application has been blocked by Bungie. It cannot be transitioned out of this
    * state by the owner. Authorizations are terminated when an application is in this
    * state.
    */
-  Blocked = 4,
-}
+  readonly Blocked: 4;
+};
+export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof ApplicationStatus];
 export interface ApplicationDeveloper {
   readonly role: DeveloperRole;
   readonly apiEulaVersion: number;
   readonly user: UserInfoCard;
 }
-export declare const enum DeveloperRole {
-  None = 0,
-  Owner = 1,
-  TeamMember = 2,
-}
+export declare const DeveloperRole: {
+  readonly None: 0;
+  readonly Owner: 1;
+  readonly TeamMember: 2;
+};
+export type DeveloperRole = (typeof DeveloperRole)[keyof typeof DeveloperRole];

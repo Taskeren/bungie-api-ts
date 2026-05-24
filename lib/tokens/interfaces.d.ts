@@ -49,11 +49,12 @@ export interface TwitchDropHistoryResponse {
   readonly CreatedAt?: string;
   readonly ClaimState?: DropStateEnum;
 }
-export declare const enum DropStateEnum {
-  Claimed = 0,
-  Applied = 1,
-  Fulfilled = 2,
-}
+export declare const DropStateEnum: {
+  readonly Claimed: 0;
+  readonly Applied: 1;
+  readonly Fulfilled: 2;
+};
+export type DropStateEnum = (typeof DropStateEnum)[keyof typeof DropStateEnum];
 export interface BungieRewardDisplay {
   readonly UserRewardAvailabilityModel: UserRewardAvailabilityModel;
   readonly ObjectiveDisplayProperties: RewardDisplayProperties;

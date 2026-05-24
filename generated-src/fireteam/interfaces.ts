@@ -18,35 +18,39 @@ import {
   UserInfoCard
 } from '../user/interfaces.js';
 
-export const enum FireteamDateRange {
-  All = 0,
-  Now = 1,
-  TwentyFourHours = 2,
-  FortyEightHours = 3,
-  ThisWeek = 4
-}
+export const FireteamDateRange = {
+  All: 0,
+  Now: 1,
+  TwentyFourHours: 2,
+  FortyEightHours: 3,
+  ThisWeek: 4
+} as const;
+export type FireteamDateRange = typeof FireteamDateRange[keyof typeof FireteamDateRange];
 
-export const enum FireteamPlatform {
-  Any = 0,
-  Playstation4 = 1,
-  XboxOne = 2,
-  Blizzard = 3,
-  Steam = 4,
-  Stadia = 5,
-  Egs = 6
-}
+export const FireteamPlatform = {
+  Any: 0,
+  Playstation4: 1,
+  XboxOne: 2,
+  Blizzard: 3,
+  Steam: 4,
+  Stadia: 5,
+  Egs: 6
+} as const;
+export type FireteamPlatform = typeof FireteamPlatform[keyof typeof FireteamPlatform];
 
-export const enum FireteamPublicSearchOption {
-  PublicAndPrivate = 0,
-  PublicOnly = 1,
-  PrivateOnly = 2
-}
+export const FireteamPublicSearchOption = {
+  PublicAndPrivate: 0,
+  PublicOnly: 1,
+  PrivateOnly: 2
+} as const;
+export type FireteamPublicSearchOption = typeof FireteamPublicSearchOption[keyof typeof FireteamPublicSearchOption];
 
-export const enum FireteamSlotSearch {
-  NoSlotRestriction = 0,
-  HasOpenPlayerSlots = 1,
-  HasOpenPlayerOrAltSlots = 2
-}
+export const FireteamSlotSearch = {
+  NoSlotRestriction: 0,
+  HasOpenPlayerSlots: 1,
+  HasOpenPlayerOrAltSlots: 2
+} as const;
+export type FireteamSlotSearch = typeof FireteamSlotSearch[keyof typeof FireteamSlotSearch];
 
 export interface SearchResultOfFireteamSummary {
   readonly results: FireteamSummary[];
@@ -174,10 +178,11 @@ export interface FireteamUserInfoCard {
   readonly bungieGlobalDisplayNameCode?: number;
 }
 
-export const enum FireteamPlatformInviteResult {
-  None = 0,
-  Success = 1,
-  AlreadyInFireteam = 2,
-  Throttled = 3,
-  ServiceError = 4
-}
+export const FireteamPlatformInviteResult = {
+  None: 0,
+  Success: 1,
+  AlreadyInFireteam: 2,
+  Throttled: 3,
+  ServiceError: 4
+} as const;
+export type FireteamPlatformInviteResult = typeof FireteamPlatformInviteResult[keyof typeof FireteamPlatformInviteResult];

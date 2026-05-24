@@ -17,20 +17,21 @@ import {
 } from '../destiny2/interfaces.js';
 import { PagedQuery } from '../common.js';
 /** The known entity types that you can have returned from Trending. */
-export declare const enum TrendingEntryType {
-  News = 0,
-  DestinyItem = 1,
-  DestinyActivity = 2,
-  DestinyRitual = 3,
-  SupportArticle = 4,
-  Creation = 5,
-  Stream = 6,
-  Update = 7,
-  Link = 8,
-  ForumTag = 9,
-  Container = 10,
-  Release = 11,
-}
+export declare const TrendingEntryType: {
+  readonly News: 0;
+  readonly DestinyItem: 1;
+  readonly DestinyActivity: 2;
+  readonly DestinyRitual: 3;
+  readonly SupportArticle: 4;
+  readonly Creation: 5;
+  readonly Stream: 6;
+  readonly Update: 7;
+  readonly Link: 8;
+  readonly ForumTag: 9;
+  readonly Container: 10;
+  readonly Release: 11;
+};
+export type TrendingEntryType = (typeof TrendingEntryType)[keyof typeof TrendingEntryType];
 export interface TrendingCategories {
   readonly categories: TrendingCategory[];
 }

@@ -84,23 +84,25 @@ export interface ContentTypeProperty {
   readonly isVideo: boolean;
   readonly isImage: boolean;
 }
-export declare const enum ContentPropertyDataTypeEnum {
-  None = 0,
-  Plaintext = 1,
-  Html = 2,
-  Dropdown = 3,
-  List = 4,
-  Json = 5,
-  Content = 6,
-  Representation = 7,
-  Set = 8,
-  File = 9,
-  FolderSet = 10,
-  Date = 11,
-  MultilinePlaintext = 12,
-  DestinyContent = 13,
-  Color = 14,
-}
+export declare const ContentPropertyDataTypeEnum: {
+  readonly None: 0;
+  readonly Plaintext: 1;
+  readonly Html: 2;
+  readonly Dropdown: 3;
+  readonly List: 4;
+  readonly Json: 5;
+  readonly Content: 6;
+  readonly Representation: 7;
+  readonly Set: 8;
+  readonly File: 9;
+  readonly FolderSet: 10;
+  readonly Date: 11;
+  readonly MultilinePlaintext: 12;
+  readonly DestinyContent: 13;
+  readonly Color: 14;
+};
+export type ContentPropertyDataTypeEnum =
+  (typeof ContentPropertyDataTypeEnum)[keyof typeof ContentPropertyDataTypeEnum];
 export interface ContentTypeDefaultValue {
   readonly whenClause: string;
   readonly whenValue: string;

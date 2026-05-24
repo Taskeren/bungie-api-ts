@@ -119,29 +119,34 @@ export interface GroupV2 {
   readonly remoteGroupId?: string;
   readonly clanInfo: GroupV2ClanInfoAndInvestment;
 }
-export declare const enum GroupType {
-  General = 0,
-  Clan = 1,
-}
-export declare const enum ChatSecuritySetting {
-  Group = 0,
-  Admins = 1,
-}
-export declare const enum GroupHomepage {
-  Wall = 0,
-  Forum = 1,
-  AllianceForum = 2,
-}
-export declare const enum MembershipOption {
-  Reviewed = 0,
-  Open = 1,
-  Closed = 2,
-}
-export declare const enum GroupPostPublicity {
-  Public = 0,
-  Alliance = 1,
-  Private = 2,
-}
+export declare const GroupType: {
+  readonly General: 0;
+  readonly Clan: 1;
+};
+export type GroupType = (typeof GroupType)[keyof typeof GroupType];
+export declare const ChatSecuritySetting: {
+  readonly Group: 0;
+  readonly Admins: 1;
+};
+export type ChatSecuritySetting = (typeof ChatSecuritySetting)[keyof typeof ChatSecuritySetting];
+export declare const GroupHomepage: {
+  readonly Wall: 0;
+  readonly Forum: 1;
+  readonly AllianceForum: 2;
+};
+export type GroupHomepage = (typeof GroupHomepage)[keyof typeof GroupHomepage];
+export declare const MembershipOption: {
+  readonly Reviewed: 0;
+  readonly Open: 1;
+  readonly Closed: 2;
+};
+export type MembershipOption = (typeof MembershipOption)[keyof typeof MembershipOption];
+export declare const GroupPostPublicity: {
+  readonly Public: 0;
+  readonly Alliance: 1;
+  readonly Private: 2;
+};
+export type GroupPostPublicity = (typeof GroupPostPublicity)[keyof typeof GroupPostPublicity];
 export interface GroupFeatures {
   readonly maximumMembers: number;
   /**
@@ -209,25 +214,28 @@ export interface GroupFeatures {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export declare const enum Capabilities {
-  None = 0,
-  Leaderboards = 1,
-  Callsign = 2,
-  OptionalConversations = 4,
-  ClanBanner = 8,
-  D2InvestmentData = 16,
-  Tags = 32,
-  Alliances = 64,
-}
+export declare const Capabilities: {
+  readonly None: 0;
+  readonly Leaderboards: 1;
+  readonly Callsign: 2;
+  readonly OptionalConversations: 4;
+  readonly ClanBanner: 8;
+  readonly D2InvestmentData: 16;
+  readonly Tags: 32;
+  readonly Alliances: 64;
+};
+export type Capabilities = (typeof Capabilities)[keyof typeof Capabilities];
 /**
  * Used for setting the guided game permission level override (admins and founders
  * can always host guided games).
  */
-export declare const enum HostGuidedGamesPermissionLevel {
-  None = 0,
-  Beginner = 1,
-  Member = 2,
-}
+export declare const HostGuidedGamesPermissionLevel: {
+  readonly None: 0;
+  readonly Beginner: 1;
+  readonly Member: 2;
+};
+export type HostGuidedGamesPermissionLevel =
+  (typeof HostGuidedGamesPermissionLevel)[keyof typeof HostGuidedGamesPermissionLevel];
 /**
  * The member levels used by all V2 Groups API. Individual group types use their
  * own mappings in their native storage (general uses BnetDbGroupMemberType and D2
@@ -235,14 +243,16 @@ export declare const enum HostGuidedGamesPermissionLevel {
  * api. These runtime values should NEVER be stored anywhere, so the values can be
  * changed as necessary.
  */
-export declare const enum RuntimeGroupMemberType {
-  None = 0,
-  Beginner = 1,
-  Member = 2,
-  Admin = 3,
-  ActingFounder = 4,
-  Founder = 5,
-}
+export declare const RuntimeGroupMemberType: {
+  readonly None: 0;
+  readonly Beginner: 1;
+  readonly Member: 2;
+  readonly Admin: 3;
+  readonly ActingFounder: 4;
+  readonly Founder: 5;
+};
+export type RuntimeGroupMemberType =
+  (typeof RuntimeGroupMemberType)[keyof typeof RuntimeGroupMemberType];
 /** The same as GroupV2ClanInfo, but includes any investment data. */
 export interface GroupV2ClanInfoAndInvestment {
   readonly d2ClanProgressions: {
@@ -269,11 +279,12 @@ export interface GroupMember {
   readonly bungieNetUserInfo: UserInfoCard;
   readonly joinDate: string;
 }
-export declare const enum GroupAllianceStatus {
-  Unallied = 0,
-  Parent = 1,
-  Child = 2,
-}
+export declare const GroupAllianceStatus: {
+  readonly Unallied: 0;
+  readonly Parent: 1;
+  readonly Child: 2;
+};
+export type GroupAllianceStatus = (typeof GroupAllianceStatus)[keyof typeof GroupAllianceStatus];
 export interface GroupPotentialMember {
   readonly potentialStatus: GroupPotentialMemberStatus;
   readonly groupId: string;
@@ -281,18 +292,21 @@ export interface GroupPotentialMember {
   readonly bungieNetUserInfo: UserInfoCard;
   readonly joinDate: string;
 }
-export declare const enum GroupPotentialMemberStatus {
-  None = 0,
-  Applicant = 1,
-  Invitee = 2,
-}
-export declare const enum GroupDateRange {
-  All = 0,
-  PastDay = 1,
-  PastWeek = 2,
-  PastMonth = 3,
-  PastYear = 4,
-}
+export declare const GroupPotentialMemberStatus: {
+  readonly None: 0;
+  readonly Applicant: 1;
+  readonly Invitee: 2;
+};
+export type GroupPotentialMemberStatus =
+  (typeof GroupPotentialMemberStatus)[keyof typeof GroupPotentialMemberStatus];
+export declare const GroupDateRange: {
+  readonly All: 0;
+  readonly PastDay: 1;
+  readonly PastWeek: 2;
+  readonly PastMonth: 3;
+  readonly PastYear: 4;
+};
+export type GroupDateRange = (typeof GroupDateRange)[keyof typeof GroupDateRange];
 /**
  * NOTE: GroupQuery, as of Destiny 2, has essentially two totally different and
  * incompatible "modes".
@@ -411,11 +425,13 @@ export interface GroupApplicationListRequest {
   readonly memberships: UserMembership[];
   readonly message: string;
 }
-export declare const enum GroupsForMemberFilter {
-  All = 0,
-  Founded = 1,
-  NonFounded = 2,
-}
+export declare const GroupsForMemberFilter: {
+  readonly All: 0;
+  readonly Founded: 1;
+  readonly NonFounded: 2;
+};
+export type GroupsForMemberFilter =
+  (typeof GroupsForMemberFilter)[keyof typeof GroupsForMemberFilter];
 export interface GroupTheme {
   readonly name: string;
   readonly folder: string;
@@ -453,18 +469,21 @@ export interface GroupV2ClanInfo {
   readonly clanCallsign: string;
   readonly clanBannerData: ClanBanner;
 }
-export declare const enum GroupSortBy {
-  Name = 0,
-  Date = 1,
-  Popularity = 2,
-  Id = 3,
-}
-export declare const enum GroupMemberCountFilter {
-  All = 0,
-  OneToTen = 1,
-  ElevenToOneHundred = 2,
-  GreaterThanOneHundred = 3,
-}
+export declare const GroupSortBy: {
+  readonly Name: 0;
+  readonly Date: 1;
+  readonly Popularity: 2;
+  readonly Id: 3;
+};
+export type GroupSortBy = (typeof GroupSortBy)[keyof typeof GroupSortBy];
+export declare const GroupMemberCountFilter: {
+  readonly All: 0;
+  readonly OneToTen: 1;
+  readonly ElevenToOneHundred: 2;
+  readonly GreaterThanOneHundred: 3;
+};
+export type GroupMemberCountFilter =
+  (typeof GroupMemberCountFilter)[keyof typeof GroupMemberCountFilter];
 export interface GroupSearchResponse {
   readonly results: GroupV2Card[];
   readonly totalResults: number;
@@ -516,20 +535,21 @@ export interface GroupMemberLeaveResult {
   readonly group: GroupV2;
   readonly groupDeleted: boolean;
 }
-export declare const enum IgnoreLength {
-  None = 0,
-  Week = 1,
-  TwoWeeks = 2,
-  ThreeWeeks = 3,
-  Month = 4,
-  ThreeMonths = 5,
-  SixMonths = 6,
-  Year = 7,
-  Forever = 8,
-  ThreeMinutes = 9,
-  Hour = 10,
-  ThirtyDays = 11,
-}
+export declare const IgnoreLength: {
+  readonly None: 0;
+  readonly Week: 1;
+  readonly TwoWeeks: 2;
+  readonly ThreeWeeks: 3;
+  readonly Month: 4;
+  readonly ThreeMonths: 5;
+  readonly SixMonths: 6;
+  readonly Year: 7;
+  readonly Forever: 8;
+  readonly ThreeMinutes: 9;
+  readonly Hour: 10;
+  readonly ThirtyDays: 11;
+};
+export type IgnoreLength = (typeof IgnoreLength)[keyof typeof IgnoreLength];
 export interface SearchResultOfGroupBan {
   readonly results: GroupBan[];
   readonly totalResults: number;
@@ -624,12 +644,14 @@ export interface GroupMemberApplication {
   readonly destinyUserInfo: GroupUserInfoCard;
   readonly bungieNetUserInfo: UserInfoCard;
 }
-export declare const enum GroupApplicationResolveState {
-  Unresolved = 0,
-  Accepted = 1,
-  Denied = 2,
-  Rescinded = 3,
-}
+export declare const GroupApplicationResolveState: {
+  readonly Unresolved: 0;
+  readonly Accepted: 1;
+  readonly Denied: 2;
+  readonly Rescinded: 3;
+};
+export type GroupApplicationResolveState =
+  (typeof GroupApplicationResolveState)[keyof typeof GroupApplicationResolveState];
 export interface EntityActionResult {
   readonly entityId: string;
   readonly result: PlatformErrorCodes;

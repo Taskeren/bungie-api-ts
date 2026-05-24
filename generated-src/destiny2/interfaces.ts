@@ -270,17 +270,18 @@ export interface DestinyIconSequenceDefinition {
  * Where/if they are stored * How they are calculated * Where they can be used in
  * other game logic
  */
-export const enum DestinyProgressionScope {
-  Account = 0,
-  Character = 1,
-  Clan = 2,
-  Item = 3,
-  ImplicitFromEquipment = 4,
-  Mapped = 5,
-  MappedAggregate = 6,
-  MappedStat = 7,
-  MappedUnlockValue = 8
-}
+export const DestinyProgressionScope = {
+  Account: 0,
+  Character: 1,
+  Clan: 2,
+  Item: 3,
+  ImplicitFromEquipment: 4,
+  Mapped: 5,
+  MappedAggregate: 6,
+  MappedStat: 7,
+  MappedUnlockValue: 8
+} as const;
+export type DestinyProgressionScope = typeof DestinyProgressionScope[keyof typeof DestinyProgressionScope];
 
 /**
  * This defines a single Step in a progression (which roughly equates to a level.
@@ -319,11 +320,12 @@ export interface DestinyProgressionStepDefinition {
  * If progression is earned, this determines whether the progression shows visual
  * effects on the character or its item - or neither.
  */
-export const enum DestinyProgressionStepDisplayEffect {
-  None = 0,
-  Character = 1,
-  Item = 2
-}
+export const DestinyProgressionStepDisplayEffect = {
+  None: 0,
+  Character: 1,
+  Item: 2
+} as const;
+export type DestinyProgressionStepDisplayEffect = typeof DestinyProgressionStepDisplayEffect[keyof typeof DestinyProgressionStepDisplayEffect];
 
 /**
  * Used in a number of Destiny contracts to return data about an item stack and its
@@ -912,10 +914,11 @@ export interface DestinyCollectibleDefinition {
  * or character level. For everything else, there's this more generic sense of
  * scope.
  */
-export const enum DestinyScope {
-  Profile = 0,
-  Character = 1
-}
+export const DestinyScope = {
+  Profile: 0,
+  Character: 1
+} as const;
+export type DestinyScope = typeof DestinyScope[keyof typeof DestinyScope];
 
 export interface DestinyCollectibleAcquisitionBlock {
   /** Mapped to DestinyMaterialRequirementSetDefinition in the manifest. */
@@ -1045,14 +1048,15 @@ export interface DestinyPresentationChildBlock {
   readonly displayStyle: DestinyPresentationDisplayStyle;
 }
 
-export const enum DestinyPresentationNodeType {
-  Default = 0,
-  Category = 1,
-  Collectibles = 2,
-  Records = 3,
-  Metric = 4,
-  Craftable = 5
-}
+export const DestinyPresentationNodeType = {
+  Default: 0,
+  Category: 1,
+  Collectibles: 2,
+  Records: 3,
+  Metric: 4,
+  Craftable: 5
+} as const;
+export type DestinyPresentationNodeType = typeof DestinyPresentationNodeType[keyof typeof DestinyPresentationNodeType];
 
 /**
  * A PresentationNode is an entity that represents a logical grouping of other
@@ -1325,15 +1329,16 @@ export interface DestinyObjectiveDefinition {
  * globally" scoped unlock data may be assumed as the worst case unless it has been
  * specifically whitelisted as otherwise. That sucks, but them's the breaks.
  */
-export const enum DestinyGatingScope {
-  None = 0,
-  Global = 1,
-  Clan = 2,
-  Profile = 3,
-  Character = 4,
-  Item = 5,
-  AssumedWorstCase = 6
-}
+export const DestinyGatingScope = {
+  None: 0,
+  Global: 1,
+  Clan: 2,
+  Profile: 3,
+  Character: 4,
+  Item: 5,
+  AssumedWorstCase: 6
+} as const;
+export type DestinyGatingScope = typeof DestinyGatingScope[keyof typeof DestinyGatingScope];
 
 /**
  * A "Location" is a sort of shortcut for referring to a specific combination of
@@ -1690,20 +1695,21 @@ export interface DestinyVendorRequirementDisplayEntryDefinition {
 }
 
 /** Describes the type of progression that a vendor has. */
-export const enum DestinyVendorProgressionType {
+export const DestinyVendorProgressionType = {
   /** The original rank progression from token redemption. */
-  Default = 0,
+  Default: 0,
   /**
    * Progression from ranks in ritual content. For example: Crucible (Shaxx), Gambit (
    * Drifter), and Season 13 Battlegrounds (War Table).
    */
-  Ritual = 1,
+  Ritual: 1,
   /**
    * A vendor progression with no seasonal refresh. For example: Xur in the Eternity
    * destination for the 30th Anniversary.
    */
-  NoSeasonalRefresh = 2
-}
+  NoSeasonalRefresh: 2
+} as const;
+export type DestinyVendorProgressionType = typeof DestinyVendorProgressionType[keyof typeof DestinyVendorProgressionType];
 
 /**
  * These definitions represent Factions in the game. Factions have ended up
@@ -2426,24 +2432,26 @@ export interface DestinyActivitySkullOption {
   readonly minDisplayDifficultyId: DestinyActivityDifficultyId;
 }
 
-export const enum DestinyActivityDifficultyId {
-  Trivial = 0,
-  Easy = 1,
-  Normal = 2,
-  Challenging = 3,
-  Hard = 4,
-  Brave = 5,
-  AlmostImpossible = 6,
-  Impossible = 7,
-  Count = 8
-}
+export const DestinyActivityDifficultyId = {
+  Trivial: 0,
+  Easy: 1,
+  Normal: 2,
+  Challenging: 3,
+  Hard: 4,
+  Brave: 5,
+  AlmostImpossible: 6,
+  Impossible: 7,
+  Count: 8
+} as const;
+export type DestinyActivityDifficultyId = typeof DestinyActivityDifficultyId[keyof typeof DestinyActivityDifficultyId];
 
-export const enum DestinyActivitySkullDynamicUse {
-  Unknown = 0,
-  Allowed = 1,
-  Disallowed = 2,
-  Count = 3
-}
+export const DestinyActivitySkullDynamicUse = {
+  Unknown: 0,
+  Allowed: 1,
+  Disallowed: 2,
+  Count: 3
+} as const;
+export type DestinyActivitySkullDynamicUse = typeof DestinyActivitySkullDynamicUse[keyof typeof DestinyActivitySkullDynamicUse];
 
 export interface DestinyActivitySelectableSkullExclusionGroupDefinition {
   /**
@@ -2463,33 +2471,36 @@ export interface DestinyActivitySelectableSkullExclusionGroupDefinition {
   readonly redacted: boolean;
 }
 
-export const enum DestinyActivityModifierDisplayCategory {
-  None = 0,
-  ModeRules = 1,
-  SelfBuildcraft = 2,
-  EnemyAdjustment = 3,
-  EnemyBuildcraft = 4,
-  Seasonal = 5,
-  Fun = 6,
-  Count = 7
-}
+export const DestinyActivityModifierDisplayCategory = {
+  None: 0,
+  ModeRules: 1,
+  SelfBuildcraft: 2,
+  EnemyAdjustment: 3,
+  EnemyBuildcraft: 4,
+  Seasonal: 5,
+  Fun: 6,
+  Count: 7
+} as const;
+export type DestinyActivityModifierDisplayCategory = typeof DestinyActivityModifierDisplayCategory[keyof typeof DestinyActivityModifierDisplayCategory];
 
-export const enum DestinyActivityModifierConnotation {
-  Neutral = 0,
-  Positive = 1,
-  Negative = 2,
-  Affix = 3,
-  Informational = 4,
-  Reward = 5,
-  Event = 6,
-  Count = 7
-}
+export const DestinyActivityModifierConnotation = {
+  Neutral: 0,
+  Positive: 1,
+  Negative: 2,
+  Affix: 3,
+  Informational: 4,
+  Reward: 5,
+  Event: 6,
+  Count: 7
+} as const;
+export type DestinyActivityModifierConnotation = typeof DestinyActivityModifierConnotation[keyof typeof DestinyActivityModifierConnotation];
 
-export const enum DestinyActivityDifficultyTierType {
-  Default = 0,
-  Training = 1,
-  Count = 2
-}
+export const DestinyActivityDifficultyTierType = {
+  Default: 0,
+  Training: 1,
+  Count: 2
+} as const;
+export type DestinyActivityDifficultyTierType = typeof DestinyActivityDifficultyTierType[keyof typeof DestinyActivityDifficultyTierType];
 
 export interface DestinyActivitySelectableSkullCollectionDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
@@ -2696,26 +2707,29 @@ export interface DestinyInventoryBucketDefinition {
   readonly redacted: boolean;
 }
 
-export const enum BucketScope {
-  Character = 0,
-  Account = 1
-}
+export const BucketScope = {
+  Character: 0,
+  Account: 1
+} as const;
+export type BucketScope = typeof BucketScope[keyof typeof BucketScope];
 
-export const enum BucketCategory {
-  Invisible = 0,
-  Item = 1,
-  Currency = 2,
-  Equippable = 3,
-  Ignored = 4
-}
+export const BucketCategory = {
+  Invisible: 0,
+  Item: 1,
+  Currency: 2,
+  Equippable: 3,
+  Ignored: 4
+} as const;
+export type BucketCategory = typeof BucketCategory[keyof typeof BucketCategory];
 
-export const enum ItemLocation {
-  Unknown = 0,
-  Inventory = 1,
-  Vault = 2,
-  Vendor = 3,
-  Postmaster = 4
-}
+export const ItemLocation = {
+  Unknown: 0,
+  Inventory: 1,
+  Vault: 2,
+  Vendor: 3,
+  Postmaster: 4
+} as const;
+export type ItemLocation = typeof ItemLocation[keyof typeof ItemLocation];
 
 export interface DestinyArtDyeReference {
   readonly artDyeChannelHash: number;
@@ -2862,113 +2876,115 @@ export interface DestinyActivityModeDefinition {
  * Modes in it. Please don't take this to mean that some D1-only feature is coming
  * back!
  */
-export const enum DestinyActivityModeType {
-  None = 0,
-  Story = 2,
-  Strike = 3,
-  Raid = 4,
-  AllPvP = 5,
-  Patrol = 6,
-  AllPvE = 7,
-  Reserved9 = 9,
-  Control = 10,
-  Reserved11 = 11,
+export const DestinyActivityModeType = {
+  None: 0,
+  Story: 2,
+  Strike: 3,
+  Raid: 4,
+  AllPvP: 5,
+  Patrol: 6,
+  AllPvE: 7,
+  Reserved9: 9,
+  Control: 10,
+  Reserved11: 11,
   /**
    * Clash -> Destiny's name for Team Deathmatch. 4v4 combat, the team with the
    * highest kills at the end of time wins.
    */
-  Clash = 12,
-  Reserved13 = 13,
-  CrimsonDoubles = 15,
-  Nightfall = 16,
-  HeroicNightfall = 17,
-  AllStrikes = 18,
-  IronBanner = 19,
-  Reserved20 = 20,
-  Reserved21 = 21,
-  Reserved22 = 22,
-  Reserved24 = 24,
-  AllMayhem = 25,
-  Reserved26 = 26,
-  Reserved27 = 27,
-  Reserved28 = 28,
-  Reserved29 = 29,
-  Reserved30 = 30,
-  Supremacy = 31,
-  PrivateMatchesAll = 32,
-  Survival = 37,
-  Countdown = 38,
-  TrialsOfTheNine = 39,
-  Social = 40,
-  TrialsCountdown = 41,
-  TrialsSurvival = 42,
-  IronBannerControl = 43,
-  IronBannerClash = 44,
-  IronBannerSupremacy = 45,
-  ScoredNightfall = 46,
-  ScoredHeroicNightfall = 47,
-  Rumble = 48,
-  AllDoubles = 49,
-  Doubles = 50,
-  PrivateMatchesClash = 51,
-  PrivateMatchesControl = 52,
-  PrivateMatchesSupremacy = 53,
-  PrivateMatchesCountdown = 54,
-  PrivateMatchesSurvival = 55,
-  PrivateMatchesMayhem = 56,
-  PrivateMatchesRumble = 57,
-  HeroicAdventure = 58,
-  Showdown = 59,
-  Lockdown = 60,
-  Scorched = 61,
-  ScorchedTeam = 62,
-  Gambit = 63,
-  AllPvECompetitive = 64,
-  Breakthrough = 65,
-  BlackArmoryRun = 66,
-  Salvage = 67,
-  IronBannerSalvage = 68,
-  PvPCompetitive = 69,
-  PvPQuickplay = 70,
-  ClashQuickplay = 71,
-  ClashCompetitive = 72,
-  ControlQuickplay = 73,
-  ControlCompetitive = 74,
-  GambitPrime = 75,
-  Reckoning = 76,
-  Menagerie = 77,
-  VexOffensive = 78,
-  NightmareHunt = 79,
-  Elimination = 80,
-  Momentum = 81,
-  Dungeon = 82,
-  Sundial = 83,
-  TrialsOfOsiris = 84,
-  Dares = 85,
-  Offensive = 86,
-  LostSector = 87,
-  Rift = 88,
-  ZoneControl = 89,
-  IronBannerRift = 90,
-  IronBannerZoneControl = 91,
-  Relic = 92,
-  LawlessFrontier = 93
-}
+  Clash: 12,
+  Reserved13: 13,
+  CrimsonDoubles: 15,
+  Nightfall: 16,
+  HeroicNightfall: 17,
+  AllStrikes: 18,
+  IronBanner: 19,
+  Reserved20: 20,
+  Reserved21: 21,
+  Reserved22: 22,
+  Reserved24: 24,
+  AllMayhem: 25,
+  Reserved26: 26,
+  Reserved27: 27,
+  Reserved28: 28,
+  Reserved29: 29,
+  Reserved30: 30,
+  Supremacy: 31,
+  PrivateMatchesAll: 32,
+  Survival: 37,
+  Countdown: 38,
+  TrialsOfTheNine: 39,
+  Social: 40,
+  TrialsCountdown: 41,
+  TrialsSurvival: 42,
+  IronBannerControl: 43,
+  IronBannerClash: 44,
+  IronBannerSupremacy: 45,
+  ScoredNightfall: 46,
+  ScoredHeroicNightfall: 47,
+  Rumble: 48,
+  AllDoubles: 49,
+  Doubles: 50,
+  PrivateMatchesClash: 51,
+  PrivateMatchesControl: 52,
+  PrivateMatchesSupremacy: 53,
+  PrivateMatchesCountdown: 54,
+  PrivateMatchesSurvival: 55,
+  PrivateMatchesMayhem: 56,
+  PrivateMatchesRumble: 57,
+  HeroicAdventure: 58,
+  Showdown: 59,
+  Lockdown: 60,
+  Scorched: 61,
+  ScorchedTeam: 62,
+  Gambit: 63,
+  AllPvECompetitive: 64,
+  Breakthrough: 65,
+  BlackArmoryRun: 66,
+  Salvage: 67,
+  IronBannerSalvage: 68,
+  PvPCompetitive: 69,
+  PvPQuickplay: 70,
+  ClashQuickplay: 71,
+  ClashCompetitive: 72,
+  ControlQuickplay: 73,
+  ControlCompetitive: 74,
+  GambitPrime: 75,
+  Reckoning: 76,
+  Menagerie: 77,
+  VexOffensive: 78,
+  NightmareHunt: 79,
+  Elimination: 80,
+  Momentum: 81,
+  Dungeon: 82,
+  Sundial: 83,
+  TrialsOfOsiris: 84,
+  Dares: 85,
+  Offensive: 86,
+  LostSector: 87,
+  Rift: 88,
+  ZoneControl: 89,
+  IronBannerRift: 90,
+  IronBannerZoneControl: 91,
+  Relic: 92,
+  LawlessFrontier: 93
+} as const;
+export type DestinyActivityModeType = typeof DestinyActivityModeType[keyof typeof DestinyActivityModeType];
 
 /** Activity Modes are grouped into a few possible broad categories. */
-export const enum DestinyActivityModeCategory {
+export const DestinyActivityModeCategory = {
   /** Activities that are neither PVP nor PVE, such as social activities. */
-  None = 0,
+  None: 0,
   /** PvE activities, where you shoot aliens in the face. */
-  PvE = 1,
+  PvE: 1,
   /** PvP activities, where you shoot your "friends". */
-  PvP = 2,
+  PvP: 2,
   /**
    * PVE competitive activities, where you shoot whoever you want whenever you want.
    * Or run around collecting small glowing triangles.
    */
-  PvECompetitive = 3
-}
+  PvECompetitive: 3
+} as const;
+export type DestinyActivityModeCategory = typeof DestinyActivityModeCategory[keyof typeof DestinyActivityModeCategory];
 
 /**
  * Destinations and Activities may have default Activity Graphs that should be
@@ -3121,13 +3137,14 @@ export interface DestinyActivityGraphNodeFeaturingStateDefinition {
  * have their own special highlight states. Don't ask me, I can't imagine they're
  * still used.
  */
-export const enum ActivityGraphNodeHighlightType {
-  None = 0,
-  Normal = 1,
-  Hyper = 2,
-  Comet = 3,
-  RiseOfIron = 4
-}
+export const ActivityGraphNodeHighlightType = {
+  None: 0,
+  Normal: 1,
+  Hyper: 2,
+  Comet: 3,
+  RiseOfIron: 4
+} as const;
+export type ActivityGraphNodeHighlightType = typeof ActivityGraphNodeHighlightType[keyof typeof ActivityGraphNodeHighlightType];
 
 /**
  * The actual activity to be redirected to when you click on the node. Note that a
@@ -3164,13 +3181,14 @@ export interface DestinyActivityGraphNodeStateEntry {
 }
 
 /** Represents a potential state of an Activity Graph node. */
-export const enum DestinyGraphNodeState {
-  Hidden = 0,
-  Visible = 1,
-  Teaser = 2,
-  Incomplete = 3,
-  Completed = 4
-}
+export const DestinyGraphNodeState = {
+  Hidden: 0,
+  Visible: 1,
+  Teaser: 2,
+  Incomplete: 3,
+  Completed: 4
+} as const;
+export type DestinyGraphNodeState = typeof DestinyGraphNodeState[keyof typeof DestinyGraphNodeState];
 
 /**
  * These Art Elements are meant to represent one-off visual effects overlaid on the
@@ -3299,43 +3317,44 @@ export interface DestinyActivityLoadoutRequirement {
  * NOTE: This is not all of the item types available, and some of these are
  * holdovers from Destiny 1 that may or may not still exist.
  */
-export const enum DestinyItemSubType {
-  None = 0,
+export const DestinyItemSubType = {
+  None: 0,
   /** DEPRECATED. Items can be both "Crucible" and something else interesting. */
-  Crucible = 1,
+  Crucible: 1,
   /** DEPRECATED. An item can both be "Vanguard" and something else. */
-  Vanguard = 2,
+  Vanguard: 2,
   /** DEPRECATED. An item can both be Exotic and something else. */
-  Exotic = 5,
-  AutoRifle = 6,
-  Shotgun = 7,
-  Machinegun = 8,
-  HandCannon = 9,
-  RocketLauncher = 10,
-  FusionRifle = 11,
-  SniperRifle = 12,
-  PulseRifle = 13,
-  ScoutRifle = 14,
+  Exotic: 5,
+  AutoRifle: 6,
+  Shotgun: 7,
+  Machinegun: 8,
+  HandCannon: 9,
+  RocketLauncher: 10,
+  FusionRifle: 11,
+  SniperRifle: 12,
+  PulseRifle: 13,
+  ScoutRifle: 14,
   /** DEPRECATED. An item can both be CRM and something else. */
-  Crm = 16,
-  Sidearm = 17,
-  Sword = 18,
-  Mask = 19,
-  Shader = 20,
-  Ornament = 21,
-  FusionRifleLine = 22,
-  GrenadeLauncher = 23,
-  SubmachineGun = 24,
-  TraceRifle = 25,
-  HelmetArmor = 26,
-  GauntletsArmor = 27,
-  ChestArmor = 28,
-  LegArmor = 29,
-  ClassArmor = 30,
-  Bow = 31,
-  DummyRepeatableBounty = 32,
-  Glaive = 33
-}
+  Crm: 16,
+  Sidearm: 17,
+  Sword: 18,
+  Mask: 19,
+  Shader: 20,
+  Ornament: 21,
+  FusionRifleLine: 22,
+  GrenadeLauncher: 23,
+  SubmachineGun: 24,
+  TraceRifle: 25,
+  HelmetArmor: 26,
+  GauntletsArmor: 27,
+  ChestArmor: 28,
+  LegArmor: 29,
+  ClassArmor: 30,
+  Bow: 31,
+  DummyRepeatableBounty: 32,
+  Glaive: 33
+} as const;
+export type DestinyItemSubType = typeof DestinyItemSubType[keyof typeof DestinyItemSubType];
 
 /**
  * A point of entry into an activity, gated by an unlock flag and with some more-or-
@@ -3578,10 +3597,11 @@ export interface DestinyDisplayCategoryDefinition {
 }
 
 /** Display categories can have custom sort orders. These are the possible options. */
-export const enum VendorDisplayCategorySortOrder {
-  Default = 0,
-  SortByTier = 1
-}
+export const VendorDisplayCategorySortOrder = {
+  Default: 0,
+  SortByTier: 1
+} as const;
+export type VendorDisplayCategorySortOrder = typeof VendorDisplayCategorySortOrder[keyof typeof VendorDisplayCategorySortOrder];
 
 /**
  * A Vendor Interaction is a dialog shown by the vendor other than sale items or
@@ -3669,18 +3689,20 @@ export interface DestinyVendorInteractionReplyDefinition {
  * When a Vendor Interaction provides rewards, they'll either let you choose one or
  * let you have all of them. This determines which it will be.
  */
-export const enum DestinyVendorInteractionRewardSelection {
-  None = 0,
-  One = 1,
-  All = 2
-}
+export const DestinyVendorInteractionRewardSelection = {
+  None: 0,
+  One: 1,
+  All: 2
+} as const;
+export type DestinyVendorInteractionRewardSelection = typeof DestinyVendorInteractionRewardSelection[keyof typeof DestinyVendorInteractionRewardSelection];
 
 /** This determines the type of reply that a Vendor will have during an Interaction. */
-export const enum DestinyVendorReplyType {
-  Accept = 0,
-  Decline = 1,
-  Complete = 2
-}
+export const DestinyVendorReplyType = {
+  Accept: 0,
+  Decline: 1,
+  Complete: 2
+} as const;
+export type DestinyVendorReplyType = typeof DestinyVendorReplyType[keyof typeof DestinyVendorReplyType];
 
 /**
  * Compare this sackType to the sack identifier in the
@@ -3692,36 +3714,37 @@ export interface DestinyVendorInteractionSackEntryDefinition {
 }
 
 /** An enumeration of the known UI interactions for Vendors. */
-export const enum VendorInteractionType {
-  Unknown = 0,
+export const VendorInteractionType = {
+  Unknown: 0,
   /** An empty interaction. If this ends up in content, it is probably a game bug. */
-  Undefined = 1,
+  Undefined: 1,
   /** An interaction shown when you complete a quest and receive a reward. */
-  QuestComplete = 2,
+  QuestComplete: 2,
   /**
    * An interaction shown when you talk to a Vendor as an intermediary step of a
    * quest.
    */
-  QuestContinue = 3,
+  QuestContinue: 3,
   /** An interaction shown when you are previewing the vendor's reputation rewards. */
-  ReputationPreview = 4,
+  ReputationPreview: 4,
   /** An interaction shown when you rank up with the vendor. */
-  RankUpReward = 5,
+  RankUpReward: 5,
   /** An interaction shown when you have tokens to turn in for the vendor. */
-  TokenTurnIn = 6,
+  TokenTurnIn: 6,
   /** An interaction shown when you're accepting a new quest. */
-  QuestAccept = 7,
+  QuestAccept: 7,
   /**
    * Honestly, this doesn't seem consistent to me. It is used to give you choices in
    * the Cryptarch as well as some reward prompts by the Eververse vendor. I'll have
    * to look into that further at some point.
    */
-  ProgressTab = 8,
+  ProgressTab: 8,
   /** These seem even less consistent. I don't know what these are. */
-  End = 9,
+  End: 9,
   /** Also seem inconsistent. I also don't know what these are offhand. */
-  Start = 10
-}
+  Start: 10
+} as const;
+export type VendorInteractionType = typeof VendorInteractionType[keyof typeof VendorInteractionType];
 
 /**
  * The definition for an "inventory flyout": a UI screen where we show you part of
@@ -3766,11 +3789,12 @@ export interface DestinyVendorInventoryFlyoutBucketDefinition {
 }
 
 /** Determines how items are sorted in an inventory bucket. */
-export const enum DestinyItemSortType {
-  ItemId = 0,
-  Timestamp = 1,
-  StackSize = 2
-}
+export const DestinyItemSortType = {
+  ItemId: 0,
+  Timestamp: 1,
+  StackSize: 2
+} as const;
+export type DestinyItemSortType = typeof DestinyItemSortType[keyof typeof DestinyItemSortType];
 
 /** This represents an item being sold by the vendor. */
 export interface DestinyVendorItemDefinition {
@@ -3942,11 +3966,12 @@ export interface DestinyVendorItemQuantity {
 }
 
 /** The action that happens when the user attempts to refund an item. */
-export const enum DestinyVendorItemRefundPolicy {
-  NotRefundable = 0,
-  DeletesItem = 1,
-  RevokesLicense = 2
-}
+export const DestinyVendorItemRefundPolicy = {
+  NotRefundable: 0,
+  DeletesItem: 1,
+  RevokesLicense: 2
+} as const;
+export type DestinyVendorItemRefundPolicy = typeof DestinyVendorItemRefundPolicy[keyof typeof DestinyVendorItemRefundPolicy];
 
 /** An overly complicated wrapper for the item level at which the item should spawn. */
 export interface DestinyItemCreationEntryLevelDefinition {
@@ -4074,11 +4099,12 @@ export interface DestinyInsertPlugActionDefinition {
 }
 
 /** Indicates the type of actions that can be performed */
-export const enum SocketTypeActionType {
-  InsertPlug = 0,
-  InfuseItem = 1,
-  ReinitializeSocket = 2
-}
+export const SocketTypeActionType = {
+  InsertPlug: 0,
+  InfuseItem: 1,
+  ReinitializeSocket: 2
+} as const;
+export type SocketTypeActionType = typeof SocketTypeActionType[keyof typeof SocketTypeActionType];
 
 /**
  * Defines a plug "Category" that is allowed to be plugged into a socket of this
@@ -4175,24 +4201,26 @@ export interface DestinySocketCategoryDefinition {
  * Represents the possible and known UI styles used by the game for rendering
  * Socket Categories.
  */
-export const enum DestinySocketCategoryStyle {
-  Unknown = 0,
-  Reusable = 1,
-  Consumable = 2,
-  Unlockable = 3,
-  Intrinsic = 4,
-  EnergyMeter = 5,
-  LargePerk = 6,
-  Abilities = 7,
-  Supers = 8
-}
+export const DestinySocketCategoryStyle = {
+  Unknown: 0,
+  Reusable: 1,
+  Consumable: 2,
+  Unlockable: 3,
+  Intrinsic: 4,
+  EnergyMeter: 5,
+  LargePerk: 6,
+  Abilities: 7,
+  Supers: 8
+} as const;
+export type DestinySocketCategoryStyle = typeof DestinySocketCategoryStyle[keyof typeof DestinySocketCategoryStyle];
 
-export const enum DestinySocketVisibility {
-  Visible = 0,
-  Hidden = 1,
-  HiddenWhenEmpty = 2,
-  HiddenIfNoPlugsAvailable = 3
-}
+export const DestinySocketVisibility = {
+  Visible: 0,
+  Hidden: 1,
+  HiddenWhenEmpty: 2,
+  HiddenIfNoPlugsAvailable: 3
+} as const;
+export type DestinySocketVisibility = typeof DestinySocketVisibility[keyof typeof DestinySocketVisibility];
 
 export interface DestinySocketTypeScalarMaterialRequirementEntry {
   /** Mapped to DestinyInventoryItemDefinition in the manifest. */
@@ -4361,99 +4389,101 @@ export interface DestinyLocationReleaseDefinition {
   readonly worldPosition: number[];
 }
 
-export const enum DestinyActivityNavPointType {
-  Inactive = 0,
-  PrimaryObjective = 1,
-  SecondaryObjective = 2,
-  TravelObjective = 3,
-  PublicEventObjective = 4,
-  AmmoCache = 5,
-  PointTypeFlag = 6,
-  CapturePoint = 7,
-  DefensiveEncounter = 8,
-  GhostInteraction = 9,
-  KillAi = 10,
-  QuestItem = 11,
-  PatrolMission = 12,
-  Incoming = 13,
-  ArenaObjective = 14,
-  AutomationHint = 15,
-  TrackedQuest = 16
-}
+export const DestinyActivityNavPointType = {
+  Inactive: 0,
+  PrimaryObjective: 1,
+  SecondaryObjective: 2,
+  TravelObjective: 3,
+  PublicEventObjective: 4,
+  AmmoCache: 5,
+  PointTypeFlag: 6,
+  CapturePoint: 7,
+  DefensiveEncounter: 8,
+  GhostInteraction: 9,
+  KillAi: 10,
+  QuestItem: 11,
+  PatrolMission: 12,
+  Incoming: 13,
+  ArenaObjective: 14,
+  AutomationHint: 15,
+  TrackedQuest: 16
+} as const;
+export type DestinyActivityNavPointType = typeof DestinyActivityNavPointType[keyof typeof DestinyActivityNavPointType];
 
 /**
  * If you're showing an unlock value in the UI, this is the format in which it
  * should be shown. You'll have to build your own algorithms on the client side to
  * determine how best to render these options.
  */
-export const enum DestinyUnlockValueUIStyle {
+export const DestinyUnlockValueUIStyle = {
   /** Generally, Automatic means "Just show the number" */
-  Automatic = 0,
+  Automatic: 0,
   /**
    * Show the number as a fractional value. For this to make sense, the value being
    * displayed should have a comparable upper bound, like the progress to the next
    * level of a Progression.
    */
-  Fraction = 1,
+  Fraction: 1,
   /**
    * Show the number as a checkbox. 0 Will mean unchecked, any other value will mean
    * checked.
    */
-  Checkbox = 2,
+  Checkbox: 2,
   /**
    * Show the number as a percentage. For this to make sense, the value being
    * displayed should have a comparable upper bound, like the progress to the next
    * level of a Progression.
    */
-  Percentage = 3,
+  Percentage: 3,
   /**
    * Show the number as a date and time. The number will be the number of seconds
    * since the Unix Epoch (January 1st, 1970 at midnight UTC). It'll be up to you to
    * convert this into a date and time format understandable to the user in their
    * time zone.
    */
-  DateTime = 4,
+  DateTime: 4,
   /**
    * Show the number as a floating point value that represents a fraction, where 0 is
    * min and 1 is max. For this to make sense, the value being displayed should have
    * a comparable upper bound, like the progress to the next level of a Progression.
    */
-  FractionFloat = 5,
+  FractionFloat: 5,
   /** Show the number as a straight-up integer. */
-  Integer = 6,
+  Integer: 6,
   /** Show the number as a time duration. The value will be returned as seconds. */
-  TimeDuration = 7,
+  TimeDuration: 7,
   /**
    * Don't bother showing the value at all, it's not easily human-interpretable, and
    * used for some internal purpose.
    */
-  Hidden = 8,
+  Hidden: 8,
   /** Example: "1.5x" */
-  Multiplier = 9,
+  Multiplier: 9,
   /**
    * Show the value as a series of green pips, like the wins in a Trials of Osiris
    * score card.
    */
-  GreenPips = 10,
+  GreenPips: 10,
   /**
    * Show the value as a series of red pips, like the losses in a Trials of Osiris
    * score card.
    */
-  RedPips = 11,
+  RedPips: 11,
   /**
    * Show the value as a percentage. For example: "51%" - Does no division, only
    * appends '%'
    */
-  ExplicitPercentage = 12,
+  ExplicitPercentage: 12,
   /**
    * Show the value as a floating-point number. For example: "4.52" NOTE: Passed
    * along from Investment as whole number with last two digits as decimal values (
    * 452 -> 4.52)
    */
-  RawFloat = 13,
+  RawFloat: 13,
   /** Show the value as a level and a reward. */
-  LevelAndReward = 14
-}
+  LevelAndReward: 14
+} as const;
+export type DestinyUnlockValueUIStyle = typeof DestinyUnlockValueUIStyle[keyof typeof DestinyUnlockValueUIStyle];
 
 /**
  * Defines the conditions under which an intrinsic perk is applied while
@@ -4546,16 +4576,17 @@ export interface DestinySandboxPerkDefinition {
   readonly redacted: boolean;
 }
 
-export const enum DamageType {
-  None = 0,
-  Kinetic = 1,
-  Arc = 2,
-  Thermal = 3,
-  Void = 4,
-  Raid = 5,
-  Stasis = 6,
-  Strand = 7
-}
+export const DamageType = {
+  None: 0,
+  Kinetic: 1,
+  Arc: 2,
+  Thermal: 3,
+  Void: 4,
+  Raid: 5,
+  Stasis: 6,
+  Strand: 7
+} as const;
+export type DamageType = typeof DamageType[keyof typeof DamageType];
 
 /**
  * All damage types that are possible in the game are defined here, along with
@@ -4614,11 +4645,12 @@ export interface DestinyColor {
  * interesting modifier for a Challenge or Quest. This indicates when the Perk is
  * granted.
  */
-export const enum DestinyObjectiveGrantStyle {
-  WhenIncomplete = 0,
-  WhenComplete = 1,
-  Always = 2
-}
+export const DestinyObjectiveGrantStyle = {
+  WhenIncomplete: 0,
+  WhenComplete: 1,
+  Always: 2
+} as const;
+export type DestinyObjectiveGrantStyle = typeof DestinyObjectiveGrantStyle[keyof typeof DestinyObjectiveGrantStyle];
 
 /**
  * Defines the conditions under which stat modifications will be applied to a
@@ -4765,36 +4797,39 @@ export interface DestinyStatDefinition {
  * character. * Item = don't aggregate: the stat should be located and used
  * directly on the item.
  */
-export const enum DestinyStatAggregationType {
-  CharacterAverage = 0,
-  Character = 1,
-  Item = 2
-}
+export const DestinyStatAggregationType = {
+  CharacterAverage: 0,
+  Character: 1,
+  Item: 2
+} as const;
+export type DestinyStatAggregationType = typeof DestinyStatAggregationType[keyof typeof DestinyStatAggregationType];
 
 /** At last, stats have categories. Use this for whatever purpose you might wish. */
-export const enum DestinyStatCategory {
-  Gameplay = 0,
-  Weapon = 1,
-  Defense = 2,
-  Primary = 3
-}
+export const DestinyStatCategory = {
+  Gameplay: 0,
+  Weapon: 1,
+  Defense: 2,
+  Primary: 3
+} as const;
+export type DestinyStatCategory = typeof DestinyStatCategory[keyof typeof DestinyStatCategory];
 
 /** If the objective has a known UI label, this enumeration will represent it. */
-export const enum DestinyObjectiveUiStyle {
-  None = 0,
-  Highlighted = 1,
-  CraftingWeaponLevel = 2,
-  CraftingWeaponLevelProgress = 3,
-  CraftingWeaponTimestamp = 4,
-  CraftingMementos = 5,
-  CraftingMementoTitle = 6,
-  DiscoverableMystery0 = 7,
-  DiscoverableMystery1 = 8,
-  DiscoverableMystery2 = 9,
-  DiscoverableMystery3 = 10,
-  DiscoverableMystery4 = 11,
-  DiscoverableExotic = 12
-}
+export const DestinyObjectiveUiStyle = {
+  None: 0,
+  Highlighted: 1,
+  CraftingWeaponLevel: 2,
+  CraftingWeaponLevelProgress: 3,
+  CraftingWeaponTimestamp: 4,
+  CraftingMementos: 5,
+  CraftingMementoTitle: 6,
+  DiscoverableMystery0: 7,
+  DiscoverableMystery1: 8,
+  DiscoverableMystery2: 9,
+  DiscoverableMystery3: 10,
+  DiscoverableMystery4: 11,
+  DiscoverableExotic: 12
+} as const;
+export type DestinyObjectiveUiStyle = typeof DestinyObjectiveUiStyle[keyof typeof DestinyObjectiveUiStyle];
 
 export interface DestinyRecordDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
@@ -4891,13 +4926,14 @@ export interface DestinyLoreDefinition {
   readonly redacted: boolean;
 }
 
-export const enum DestinyRecordValueStyle {
-  Integer = 0,
-  Percentage = 1,
-  Milliseconds = 2,
-  Boolean = 3,
-  Decimal = 4
-}
+export const DestinyRecordValueStyle = {
+  Integer: 0,
+  Percentage: 1,
+  Milliseconds: 2,
+  Boolean: 3,
+  Decimal: 4
+} as const;
+export type DestinyRecordValueStyle = typeof DestinyRecordValueStyle[keyof typeof DestinyRecordValueStyle];
 
 export interface DestinyRecordTitleBlock {
   readonly hasTitle: boolean;
@@ -4941,11 +4977,12 @@ export interface DestinyGenderDefinition {
   readonly redacted: boolean;
 }
 
-export const enum DestinyGender {
-  Male = 0,
-  Female = 1,
-  Unknown = 2
-}
+export const DestinyGender = {
+  Male: 0,
+  Female: 1,
+  Unknown: 2
+} as const;
+export type DestinyGender = typeof DestinyGender[keyof typeof DestinyGender];
 
 export interface DestinyRecordCompletionBlock {
   /**
@@ -4958,25 +4995,26 @@ export interface DestinyRecordCompletionBlock {
   readonly toastStyle: DestinyRecordToastStyle;
 }
 
-export const enum DestinyRecordToastStyle {
-  None = 0,
-  Record = 1,
-  Lore = 2,
-  Badge = 3,
-  MetaRecord = 4,
-  MedalComplete = 5,
-  SeasonChallengeComplete = 6,
-  GildedTitleComplete = 7,
-  CraftingRecipeUnlocked = 8,
-  ToastGuardianRankDetails = 9,
-  PathfinderObjectiveCompleteRituals = 10,
-  PathfinderObjectiveCompleteSchism = 11,
-  PathfinderObjectiveCompletePvp = 12,
-  PathfinderObjectiveCompleteStrikes = 13,
-  PathfinderObjectiveCompleteGambit = 14,
-  SeasonWeeklyComplete = 15,
-  SeasonDailyComplete = 16
-}
+export const DestinyRecordToastStyle = {
+  None: 0,
+  Record: 1,
+  Lore: 2,
+  Badge: 3,
+  MetaRecord: 4,
+  MedalComplete: 5,
+  SeasonChallengeComplete: 6,
+  GildedTitleComplete: 7,
+  CraftingRecipeUnlocked: 8,
+  ToastGuardianRankDetails: 9,
+  PathfinderObjectiveCompleteRituals: 10,
+  PathfinderObjectiveCompleteSchism: 11,
+  PathfinderObjectiveCompletePvp: 12,
+  PathfinderObjectiveCompleteStrikes: 13,
+  PathfinderObjectiveCompleteGambit: 14,
+  SeasonWeeklyComplete: 15,
+  SeasonDailyComplete: 16
+} as const;
+export type DestinyRecordToastStyle = typeof DestinyRecordToastStyle[keyof typeof DestinyRecordToastStyle];
 
 export interface SchemaRecordStateBlock {
   readonly featuredPriority: number;
@@ -5105,50 +5143,52 @@ export interface DestinyPresentationNodeCraftableChildEntry {
  * A hint for how the presentation node should be displayed when shown in a list.
  * How you use this is your UI is up to you.
  */
-export const enum DestinyPresentationDisplayStyle {
+export const DestinyPresentationDisplayStyle = {
   /** Display the item as a category, through which sub-items are filtered. */
-  Category = 0,
-  Badge = 1,
-  Medals = 2,
-  Collectible = 3,
-  Record = 4,
-  SeasonalTriumph = 5,
-  GuardianRank = 6,
-  CategoryCollectibles = 7,
-  CategoryCurrencies = 8,
-  CategoryEmblems = 9,
-  CategoryEmotes = 10,
-  CategoryEngrams = 11,
-  CategoryFinishers = 12,
-  CategoryGhosts = 13,
-  CategoryMisc = 14,
-  CategoryMods = 15,
-  CategoryOrnaments = 16,
-  CategoryShaders = 17,
-  CategoryShips = 18,
-  CategorySpawnfx = 19,
-  CategoryUpgradeMaterials = 20
-}
+  Category: 0,
+  Badge: 1,
+  Medals: 2,
+  Collectible: 3,
+  Record: 4,
+  SeasonalTriumph: 5,
+  GuardianRank: 6,
+  CategoryCollectibles: 7,
+  CategoryCurrencies: 8,
+  CategoryEmblems: 9,
+  CategoryEmotes: 10,
+  CategoryEngrams: 11,
+  CategoryFinishers: 12,
+  CategoryGhosts: 13,
+  CategoryMisc: 14,
+  CategoryMods: 15,
+  CategoryOrnaments: 16,
+  CategoryShaders: 17,
+  CategoryShips: 18,
+  CategorySpawnfx: 19,
+  CategoryUpgradeMaterials: 20
+} as const;
+export type DestinyPresentationDisplayStyle = typeof DestinyPresentationDisplayStyle[keyof typeof DestinyPresentationDisplayStyle];
 
 /**
  * A hint for what screen should be shown when this presentation node is clicked
  * into. How you use this is your UI is up to you.
  */
-export const enum DestinyPresentationScreenStyle {
+export const DestinyPresentationScreenStyle = {
   /** Use the "default" view for the presentation nodes. */
-  Default = 0,
+  Default: 0,
   /**
    * Show sub-items as "category sets". In-game, you'd see these as a vertical list
    * of child presentation nodes - armor sets for example - and the icons of items
    * within those sets displayed horizontally.
    */
-  CategorySets = 1,
+  CategorySets: 1,
   /**
    * Show sub-items as Badges. (I know, I know. We don't need no stinkin' badges har
    * har har)
    */
-  Badge = 2
-}
+  Badge: 2
+} as const;
+export type DestinyPresentationScreenStyle = typeof DestinyPresentationScreenStyle[keyof typeof DestinyPresentationScreenStyle];
 
 /**
  * If an item can have an action performed on it (like "Dismantle"), it will be
@@ -5447,15 +5487,16 @@ export interface DestinyItemTierTypeInfusionBlock {
   readonly minimumQualityIncrement: number;
 }
 
-export const enum TierType {
-  Unknown = 0,
-  Currency = 1,
-  Basic = 2,
-  Common = 3,
-  Rare = 4,
-  Superior = 5,
-  Exotic = 6
-}
+export const TierType = {
+  Unknown: 0,
+  Currency: 1,
+  Basic: 2,
+  Common: 3,
+  Rare: 4,
+  Superior: 5,
+  Exotic: 6
+} as const;
+export type TierType = typeof TierType[keyof typeof TierType];
 
 /**
  * Primarily for Quests, this is the definition of properties related to the item
@@ -5834,18 +5875,20 @@ export interface DestinyEquippingBlockDefinition {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum EquippingItemBlockAttributes {
-  None = 0,
-  EquipOnAcquire = 1
-}
+export const EquippingItemBlockAttributes = {
+  None: 0,
+  EquipOnAcquire: 1
+} as const;
+export type EquippingItemBlockAttributes = typeof EquippingItemBlockAttributes[keyof typeof EquippingItemBlockAttributes];
 
-export const enum DestinyAmmunitionType {
-  None = 0,
-  Primary = 1,
-  Special = 2,
-  Heavy = 3,
-  Unknown = 4
-}
+export const DestinyAmmunitionType = {
+  None: 0,
+  Primary: 1,
+  Special: 2,
+  Heavy: 3,
+  Unknown: 4
+} as const;
+export type DestinyAmmunitionType = typeof DestinyAmmunitionType[keyof typeof DestinyAmmunitionType];
 
 /** Perks that are active only when you have a certain number of set items equipped. */
 export interface DestinyEquipableItemSetDefinition {
@@ -5984,12 +6027,13 @@ export interface DestinyClassDefinition {
   readonly redacted: boolean;
 }
 
-export const enum DestinyClass {
-  Titan = 0,
-  Hunter = 1,
-  Warlock = 2,
-  Unknown = 3
-}
+export const DestinyClass = {
+  Titan: 0,
+  Hunter: 1,
+  Warlock: 2,
+  Unknown: 3
+} as const;
+export type DestinyClass = typeof DestinyClass[keyof typeof DestinyClass];
 
 /**
  * Items like Sacks or Boxes can have items that it shows in-game when you view
@@ -6401,16 +6445,16 @@ export interface DestinyRewardSourceDefinition {
  * ways that items could be spawned, and tried to make high-level categorizations
  * of them. This needs to be re-evaluated for Destiny 2.
  */
-export const enum DestinyRewardSourceCategory {
+export const DestinyRewardSourceCategory = {
   /** The source doesn't fit well into any of the other types. */
-  None = 0,
+  None: 0,
   /**
    * The source is directly related to the rewards gained by playing an activity or
    * set of activities. This currently includes Quests and other action in-game.
    */
-  Activity = 1,
+  Activity: 1,
   /** This source is directly related to items that Vendors sell. */
-  Vendor = 2,
+  Vendor: 2,
   /**
    * This source is a custom aggregation of items that can be earned in many ways,
    * but that share some other property in common that is useful to share. For
@@ -6418,8 +6462,9 @@ export const enum DestinyRewardSourceCategory {
    * that way, you could search reward sources to see what items became available
    * with any given Expansion.
    */
-  Aggregate = 3
-}
+  Aggregate: 3
+} as const;
+export type DestinyRewardSourceCategory = typeof DestinyRewardSourceCategory[keyof typeof DestinyRewardSourceCategory];
 
 /**
  * Properties of a DestinyInventoryItemDefinition that store all of the information
@@ -6730,10 +6775,11 @@ export interface DestinyPlugRuleDefinition {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum PlugUiStyles {
-  None = 0,
-  Masterwork = 1
-}
+export const PlugUiStyles = {
+  None: 0,
+  Masterwork: 1
+} as const;
+export type PlugUiStyles = typeof PlugUiStyles[keyof typeof PlugUiStyles];
 
 /**
  * This enum determines whether the plug is available to be inserted.
@@ -6749,11 +6795,12 @@ export const enum PlugUiStyles {
  * For category matching, use the plug's "plugCategoryIdentifier" property,
  * comparing it to
  */
-export const enum PlugAvailabilityMode {
-  Normal = 0,
-  UnavailableIfSocketContainsMatchingPlugCategory = 1,
-  AvailableIfSocketContainsMatchingPlugCategory = 2
-}
+export const PlugAvailabilityMode = {
+  Normal: 0,
+  UnavailableIfSocketContainsMatchingPlugCategory: 1,
+  AvailableIfSocketContainsMatchingPlugCategory: 2
+} as const;
+export type PlugAvailabilityMode = typeof PlugAvailabilityMode[keyof typeof PlugAvailabilityMode];
 
 export interface DestinyParentItemOverride {
   readonly additionalEquipRequirementsDisplayStrings: string[];
@@ -6838,15 +6885,16 @@ export interface DestinyEnergyTypeDefinition {
  * Represents the socket energy types for Armor 2.0, Ghosts 2.0, and Stasis
  * subclasses.
  */
-export const enum DestinyEnergyType {
-  Any = 0,
-  Arc = 1,
-  Thermal = 2,
-  Void = 3,
-  Ghost = 4,
-  Subclass = 5,
-  Stasis = 6
-}
+export const DestinyEnergyType = {
+  Any: 0,
+  Arc: 1,
+  Thermal: 2,
+  Void: 3,
+  Ghost: 4,
+  Subclass: 5,
+  Stasis: 6
+} as const;
+export type DestinyEnergyType = typeof DestinyEnergyType[keyof typeof DestinyEnergyType];
 
 /**
  * Some plugs cost Energy, which is a stat on the item that can be increased by
@@ -7044,9 +7092,9 @@ export interface DestinyItemSocketEntryPlugItemDefinition {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum SocketPlugSources {
+export const SocketPlugSources = {
   /** If there's no way we can detect to insert new plugs. */
-  None = 0,
+  None: 0,
   /**
    * Use plugs found in the player's inventory, based on the socket type rules (see
    * DestinySocketTypeDefinition for more info)
@@ -7054,7 +7102,7 @@ export const enum SocketPlugSources {
    * Note that a socket - like Shaders - can have *both* reusable plugs and inventory
    * items inserted theoretically.
    */
-  InventorySourced = 1,
+  InventorySourced: 1,
   /**
    * Use the DestinyItemSocketsComponent.sockets.reusablePlugs property to determine
    * which plugs are valid for this socket. This may have to be combined with other
@@ -7065,18 +7113,19 @@ export const enum SocketPlugSources {
    * randomized" in which case the only source of truth at the moment is still the
    * runtime DestinyItemSocketsComponent.sockets.reusablePlugs property.
    */
-  ReusablePlugItems = 2,
+  ReusablePlugItems: 2,
   /**
    * Use the ProfilePlugSets (DestinyProfileResponse.profilePlugSets) component data
    * to determine which plugs are valid for this socket.
    */
-  ProfilePlugSet = 4,
+  ProfilePlugSet: 4,
   /**
    * Use the CharacterPlugSets (DestinyProfileResponse.characterPlugSets) component
    * data to determine which plugs are valid for this socket.
    */
-  CharacterPlugSet = 8
-}
+  CharacterPlugSet: 8
+} as const;
+export type SocketPlugSources = typeof SocketPlugSources[keyof typeof SocketPlugSources];
 
 /**
  * Sometimes, we have large sets of reusable plugs that are defined identically and
@@ -7760,83 +7809,88 @@ export interface DestinyTalentNodeStepGroups {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum DestinyTalentNodeStepWeaponPerformances {
-  None = 0,
-  RateOfFire = 1,
-  Damage = 2,
-  Accuracy = 4,
-  Range = 8,
-  Zoom = 16,
-  Recoil = 32,
-  Ready = 64,
-  Reload = 128,
-  HairTrigger = 256,
-  AmmoAndMagazine = 512,
-  TrackingAndDetonation = 1024,
-  ShotgunSpread = 2048,
-  ChargeTime = 4096,
-  All = 8191
-}
+export const DestinyTalentNodeStepWeaponPerformances = {
+  None: 0,
+  RateOfFire: 1,
+  Damage: 2,
+  Accuracy: 4,
+  Range: 8,
+  Zoom: 16,
+  Recoil: 32,
+  Ready: 64,
+  Reload: 128,
+  HairTrigger: 256,
+  AmmoAndMagazine: 512,
+  TrackingAndDetonation: 1024,
+  ShotgunSpread: 2048,
+  ChargeTime: 4096,
+  All: 8191
+} as const;
+export type DestinyTalentNodeStepWeaponPerformances = typeof DestinyTalentNodeStepWeaponPerformances[keyof typeof DestinyTalentNodeStepWeaponPerformances];
 
 /**
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum DestinyTalentNodeStepImpactEffects {
-  None = 0,
-  ArmorPiercing = 1,
-  Ricochet = 2,
-  Flinch = 4,
-  CollateralDamage = 8,
-  Disorient = 16,
-  HighlightTarget = 32,
-  All = 63
-}
+export const DestinyTalentNodeStepImpactEffects = {
+  None: 0,
+  ArmorPiercing: 1,
+  Ricochet: 2,
+  Flinch: 4,
+  CollateralDamage: 8,
+  Disorient: 16,
+  HighlightTarget: 32,
+  All: 63
+} as const;
+export type DestinyTalentNodeStepImpactEffects = typeof DestinyTalentNodeStepImpactEffects[keyof typeof DestinyTalentNodeStepImpactEffects];
 
 /**
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum DestinyTalentNodeStepGuardianAttributes {
-  None = 0,
-  Stats = 1,
-  Shields = 2,
-  Health = 4,
-  Revive = 8,
-  AimUnderFire = 16,
-  Radar = 32,
-  Invisibility = 64,
-  Reputations = 128,
-  All = 255
-}
+export const DestinyTalentNodeStepGuardianAttributes = {
+  None: 0,
+  Stats: 1,
+  Shields: 2,
+  Health: 4,
+  Revive: 8,
+  AimUnderFire: 16,
+  Radar: 32,
+  Invisibility: 64,
+  Reputations: 128,
+  All: 255
+} as const;
+export type DestinyTalentNodeStepGuardianAttributes = typeof DestinyTalentNodeStepGuardianAttributes[keyof typeof DestinyTalentNodeStepGuardianAttributes];
 
 /**
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum DestinyTalentNodeStepLightAbilities {
-  None = 0,
-  Grenades = 1,
-  Melee = 2,
-  MovementModes = 4,
-  Orbs = 8,
-  SuperEnergy = 16,
-  SuperMods = 32,
-  All = 63
-}
+export const DestinyTalentNodeStepLightAbilities = {
+  None: 0,
+  Grenades: 1,
+  Melee: 2,
+  MovementModes: 4,
+  Orbs: 8,
+  SuperEnergy: 16,
+  SuperMods: 32,
+  All: 63
+} as const;
+export type DestinyTalentNodeStepLightAbilities = typeof DestinyTalentNodeStepLightAbilities[keyof typeof DestinyTalentNodeStepLightAbilities];
 
 /**
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum DestinyTalentNodeStepDamageTypes {
-  None = 0,
-  Kinetic = 1,
-  Arc = 2,
-  Solar = 4,
-  Void = 8,
-  All = 15
-}
+export const DestinyTalentNodeStepDamageTypes = {
+  None: 0,
+  Kinetic: 1,
+  Arc: 2,
+  Solar: 4,
+  Void: 8,
+  All: 15
+} as const;
+export type DestinyTalentNodeStepDamageTypes = typeof DestinyTalentNodeStepDamageTypes[keyof typeof DestinyTalentNodeStepDamageTypes];
 
 /**
  * This is a bit of an odd duck. Apparently, if talent nodes steps have this data,
@@ -7967,11 +8021,12 @@ export interface DestinyItemPerkEntryDefinition {
  * useful for those of you trying to filter out internal-use-only perks (or for
  * those of you trying to figure out what they do!)
  */
-export const enum ItemPerkVisibility {
-  Visible = 0,
-  Disabled = 1,
-  Hidden = 2
-}
+export const ItemPerkVisibility = {
+  Visible: 0,
+  Disabled: 1,
+  Hidden: 2
+} as const;
+export type ItemPerkVisibility = typeof ItemPerkVisibility[keyof typeof ItemPerkVisibility];
 
 export interface DestinyAnimationReference {
   readonly animName: string;
@@ -8105,12 +8160,13 @@ export interface DestinyItemCategoryDefinition {
  * A plug can optionally have a "Breaker Type": a special ability that can affect
  * units in unique ways. Activating this plug can grant one of these types.
  */
-export const enum DestinyBreakerType {
-  None = 0,
-  ShieldPiercing = 1,
-  Disruption = 2,
-  Stagger = 3
-}
+export const DestinyBreakerType = {
+  None: 0,
+  ShieldPiercing: 1,
+  Disruption: 2,
+  Stagger: 3
+} as const;
+export type DestinyBreakerType = typeof DestinyBreakerType[keyof typeof DestinyBreakerType];
 
 /**
  * An enumeration that indicates the high-level "type" of the item, attempting to
@@ -8132,36 +8188,37 @@ export const enum DestinyBreakerType {
  * I keep updating these because they're so damn convenient. I guess I shouldn't
  * fight it.
  */
-export const enum DestinyItemType {
-  None = 0,
-  Currency = 1,
-  Armor = 2,
-  Weapon = 3,
-  Message = 7,
-  Engram = 8,
-  Consumable = 9,
-  ExchangeMaterial = 10,
-  MissionReward = 11,
-  QuestStep = 12,
-  QuestStepComplete = 13,
-  Emblem = 14,
-  Quest = 15,
-  Subclass = 16,
-  ClanBanner = 17,
-  Aura = 18,
-  Mod = 19,
-  Dummy = 20,
-  Ship = 21,
-  Vehicle = 22,
-  Emote = 23,
-  Ghost = 24,
-  Package = 25,
-  Bounty = 26,
-  Wrapper = 27,
-  SeasonalArtifact = 28,
-  Finisher = 29,
-  Pattern = 30
-}
+export const DestinyItemType = {
+  None: 0,
+  Currency: 1,
+  Armor: 2,
+  Weapon: 3,
+  Message: 7,
+  Engram: 8,
+  Consumable: 9,
+  ExchangeMaterial: 10,
+  MissionReward: 11,
+  QuestStep: 12,
+  QuestStepComplete: 13,
+  Emblem: 14,
+  Quest: 15,
+  Subclass: 16,
+  ClanBanner: 17,
+  Aura: 18,
+  Mod: 19,
+  Dummy: 20,
+  Ship: 21,
+  Vehicle: 22,
+  Emote: 23,
+  Ghost: 24,
+  Package: 25,
+  Bounty: 26,
+  Wrapper: 27,
+  SeasonalArtifact: 28,
+  Finisher: 29,
+  Pattern: 30
+} as const;
+export type DestinyItemType = typeof DestinyItemType[keyof typeof DestinyItemType];
 
 /**
  * As you run into items that need to be classified for Milestone purposes in ways
@@ -8171,17 +8228,18 @@ export const enum DestinyItemType {
  * NOTE: This is not all of the item types available, and some of these are
  * holdovers from Destiny 1 that may or may not still exist.
  */
-export const enum SpecialItemType {
-  None = 0,
-  SpecialCurrency = 1,
-  Armor = 8,
-  Weapon = 9,
-  Engram = 23,
-  Consumable = 24,
-  ExchangeMaterial = 25,
-  MissionReward = 27,
-  Currency = 29
-}
+export const SpecialItemType = {
+  None: 0,
+  SpecialCurrency: 1,
+  Armor: 8,
+  Weapon: 9,
+  Engram: 23,
+  Consumable: 24,
+  ExchangeMaterial: 25,
+  MissionReward: 27,
+  Currency: 29
+} as const;
+export type SpecialItemType = typeof SpecialItemType[keyof typeof SpecialItemType];
 
 export interface DestinyBreakerTypeDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
@@ -8392,10 +8450,11 @@ export interface DestinyProgressionRewardItemQuantity {
  * Represents the different kinds of acquisition behavior for progression reward
  * items.
  */
-export const enum DestinyProgressionRewardItemAcquisitionBehavior {
-  Instant = 0,
-  PlayerClaimRequired = 1
-}
+export const DestinyProgressionRewardItemAcquisitionBehavior = {
+  Instant: 0,
+  PlayerClaimRequired: 1
+} as const;
+export type DestinyProgressionRewardItemAcquisitionBehavior = typeof DestinyProgressionRewardItemAcquisitionBehavior[keyof typeof DestinyProgressionRewardItemAcquisitionBehavior];
 
 /**
  * The information for how progression item definitions should override a given
@@ -8424,22 +8483,23 @@ export interface DestinyProgressionResetEntry {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum DestinyProgressionRewardItemState {
-  None = 0,
+export const DestinyProgressionRewardItemState = {
+  None: 0,
   /** If this is set, the reward should be hidden. */
-  Invisible = 1,
+  Invisible: 1,
   /** If this is set, the reward has been earned. */
-  Earned = 2,
+  Earned: 2,
   /** If this is set, the reward has been claimed. */
-  Claimed = 4,
+  Claimed: 4,
   /**
    * If this is set, the reward is allowed to be claimed by this Character. An item
    * can be earned but still can't be claimed in certain circumstances, like if it's
    * only allowed for certain subclasses. It also might not be able to be claimed if
    * you already claimed it!
    */
-  ClaimAllowed = 8
-}
+  ClaimAllowed: 8
+} as const;
+export type DestinyProgressionRewardItemState = typeof DestinyProgressionRewardItemState[keyof typeof DestinyProgressionRewardItemState];
 
 /**
  * Represents the stats and item state if applicable for progression reward items
@@ -8487,36 +8547,37 @@ export interface DestinyStat {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum ItemState {
-  None = 0,
+export const ItemState = {
+  None: 0,
   /**
    * If this bit is set, the item has been "locked" by the user and cannot be deleted.
    * You may want to represent this visually with a "lock" icon.
    */
-  Locked = 1,
+  Locked: 1,
   /**
    * If this bit is set, the item is a quest that's being tracked by the user. You
    * may want a visual indicator to show that this is a tracked quest.
    */
-  Tracked = 2,
+  Tracked: 2,
   /**
    * If this bit is set, the item has a Masterwork plug inserted. This usually
    * coincides with having a special "glowing" effect applied to the item's icon.
    */
-  Masterwork = 4,
+  Masterwork: 4,
   /**
    * If this bit is set, the item has been 'crafted' by the player. You may want to
    * represent this visually with a "crafted" icon overlay.
    */
-  Crafted = 8,
+  Crafted: 8,
   /**
    * If this bit is set, the item has a 'highlighted' objective. You may want to
    * represent this with an orange-red icon border color.
    */
-  HighlightedObjective = 16,
+  HighlightedObjective: 16,
   /** If this bit is set, the item has been 'enhanced' by the player. */
-  Enhanced = 32
-}
+  Enhanced: 32
+} as const;
+export type ItemState = typeof ItemState[keyof typeof ItemState];
 
 /**
  * Represents the possible components that can be returned from Destiny "Get" calls
@@ -8528,36 +8589,36 @@ export const enum ItemState {
  * progressions, you would pass "?components=Profiles,Characters,
  * CharacterProgressions" You may use either the numerical or string values.
  */
-export const enum DestinyComponentType {
-  None = 0,
+export const DestinyComponentType = {
+  None: 0,
   /**
    * Profiles is the most basic component, only relevant when calling GetProfile.
    * This returns basic information about the profile, which is almost nothing: a
    * list of characterIds, some information about the last time you logged in, and
    * that most sobering statistic: how long you've played.
    */
-  Profiles = 100,
+  Profiles: 100,
   /**
    * Only applicable for GetProfile, this will return information about receipts for
    * refundable vendor items.
    */
-  VendorReceipts = 101,
+  VendorReceipts: 101,
   /**
    * Asking for this will get you the profile-level inventories, such as your Vault
    * buckets (yeah, the Vault is really inventory buckets located on your Profile)
    */
-  ProfileInventories = 102,
+  ProfileInventories: 102,
   /**
    * This will get you a summary of items on your Profile that we consider to be "
    * currencies", such as Glimmer. I mean, if there's Glimmer in Destiny 2. I didn't
    * say there was Glimmer.
    */
-  ProfileCurrencies = 103,
+  ProfileCurrencies: 103,
   /**
    * This will get you any progression-related information that exists on a Profile-
    * wide level, across all characters.
    */
-  ProfileProgression = 104,
+  ProfileProgression: 104,
   /**
    * This will get you information about the silver that this profile has on every
    * platform on which it plays.
@@ -8565,29 +8626,29 @@ export const enum DestinyComponentType {
    * You may only request this component for the logged in user's Profile, and will
    * not recieve it if you request it for another Profile.
    */
-  PlatformSilver = 105,
+  PlatformSilver: 105,
   /** This will get you summary info about each of the characters in the profile. */
-  Characters = 200,
+  Characters: 200,
   /**
    * This will get you information about any non-equipped items on the character or
    * character(s) in question, if you're allowed to see it. You have to either be
    * authenticated as that user, or that user must allow anonymous viewing of their
    * non-equipped items in Bungie.Net settings to actually get results.
    */
-  CharacterInventories = 201,
+  CharacterInventories: 201,
   /**
    * This will get you information about the progression (faction, experience, etc...
    * "levels") relevant to each character, if you are the currently authenticated
    * user or the user has elected to allow anonymous viewing of its progression info.
    */
-  CharacterProgressions = 202,
+  CharacterProgressions: 202,
   /**
    * This will get you just enough information to be able to render the character in
    * 3D if you have written a 3D rendering library for Destiny Characters, or "
    * borrowed" ours. It's okay, I won't tell anyone if you're using it. I'm no snitch.
    * (actually, we don't care if you use it - go to town)
    */
-  CharacterRenderData = 203,
+  CharacterRenderData: 203,
   /**
    * This will return info about activities that a user can see and gating on it, if
    * you are the currently authenticated user or the user has elected to allow
@@ -8595,51 +8656,51 @@ export const enum DestinyComponentType {
    * can be unfortunately problematic and relatively unreliable in some cases. We'll
    * eventually work on making it more consistently reliable.
    */
-  CharacterActivities = 204,
+  CharacterActivities: 204,
   /**
    * This will return info about the equipped items on the character(s). Everyone can
    * see this.
    */
-  CharacterEquipment = 205,
+  CharacterEquipment: 205,
   /** This will return info about the loadouts of the character(s). */
-  CharacterLoadouts = 206,
+  CharacterLoadouts: 206,
   /**
    * This will return basic info about instanced items - whether they can be equipped,
    * their tracked status, and some info commonly needed in many places (current
    * damage type, primary stat value, etc)
    */
-  ItemInstances = 300,
+  ItemInstances: 300,
   /**
    * Items can have Objectives (DestinyObjectiveDefinition) bound to them. If they do,
    * this will return info for items that have such bound objectives.
    */
-  ItemObjectives = 301,
+  ItemObjectives: 301,
   /**
    * Items can have perks (DestinySandboxPerkDefinition). If they do, this will
    * return info for what perks are active on items.
    */
-  ItemPerks = 302,
+  ItemPerks: 302,
   /**
    * If you just want to render the weapon, this is just enough info to do that
    * rendering.
    */
-  ItemRenderData = 303,
+  ItemRenderData: 303,
   /**
    * Items can have stats, like rate of fire. Asking for this component will return
    * requested item's stats if they have stats.
    */
-  ItemStats = 304,
+  ItemStats: 304,
   /**
    * Items can have sockets, where plugs can be inserted. Asking for this component
    * will return all info relevant to the sockets on items that have them.
    */
-  ItemSockets = 305,
+  ItemSockets: 305,
   /**
    * Items can have talent grids, though that matters a lot less frequently than it
    * used to. Asking for this component will return all relevant info about activated
    * Nodes and Steps on this talent grid, like the good ol' days.
    */
-  ItemTalentGrids = 306,
+  ItemTalentGrids: 306,
   /**
    * Items that *aren't* instanced still have important information you need to know:
    * how much of it you have, the itemHash so you can look up their
@@ -8648,19 +8709,19 @@ export const enum DestinyComponentType {
    * automatically with Inventory components - you only need to pass this when
    * calling GetItem on a specific item.
    */
-  ItemCommonData = 307,
+  ItemCommonData: 307,
   /**
    * Items that are "Plugs" can be inserted into sockets. This returns statuses about
    * those plugs and why they can/can't be inserted. I hear you giggling, there's
    * nothing funny about inserting plugs. Get your head out of the gutter and pay
    * attention!
    */
-  ItemPlugStates = 308,
+  ItemPlugStates: 308,
   /**
    * Sometimes, plugs have objectives on them. This data can get really large, so we
    * split it into its own component. Please, don't grab it unless you need it.
    */
-  ItemPlugObjectives = 309,
+  ItemPlugObjectives: 309,
   /**
    * Sometimes, designers create thousands of reusable plugs and suddenly your
    * response sizes are almost 3MB, and something has to give.
@@ -8679,29 +8740,29 @@ export const enum DestinyComponentType {
    * return plugs that have state data that is per-item. See Plug Sets for available
    * plugs that have Character, Profile, or no state-specific restrictions.
    */
-  ItemReusablePlugs = 310,
+  ItemReusablePlugs: 310,
   /**
    * When obtaining vendor information, this will return summary information about
    * the Vendor or Vendors being returned.
    */
-  Vendors = 400,
+  Vendors: 400,
   /**
    * When obtaining vendor information, this will return information about the
    * categories of items provided by the Vendor.
    */
-  VendorCategories = 401,
+  VendorCategories: 401,
   /**
    * When obtaining vendor information, this will return the information about items
    * being sold by the Vendor.
    */
-  VendorSales = 402,
+  VendorSales: 402,
   /**
    * Asking for this component will return you the account's Kiosk statuses: that is,
    * what items have been filled out/acquired. But only if you are the currently
    * authenticated user or the user has elected to allow anonymous viewing of its
    * progression info.
    */
-  Kiosks = 500,
+  Kiosks: 500,
   /**
    * A "shortcut" component that will give you all of the item hashes/quantities of
    * items that the requested character can use to determine if an action (purchasing,
@@ -8709,7 +8770,7 @@ export const enum DestinyComponentType {
    * just items, and that some vendor purchases require items that you might not
    * traditionally consider to be a "currency", like plugs/mods!)
    */
-  CurrencyLookups = 600,
+  CurrencyLookups: 600,
   /**
    * Returns summary status information about all "Presentation Nodes". See
    * DestinyPresentationNodeDefinition for more details, but the gist is that these
@@ -8717,20 +8778,20 @@ export const enum DestinyComponentType {
    * hierarchy of categories. You may ask for and use this data if you want to
    * perform similar bucketing in your own UI: or you can skip it and roll your own.
    */
-  PresentationNodes = 700,
+  PresentationNodes: 700,
   /**
    * Returns summary status information about all "Collectibles". These are records
    * of what items you've discovered while playing Destiny, and some other basic
    * information. For detailed information, you will have to call a separate endpoint
    * devoted to the purpose.
    */
-  Collectibles = 800,
+  Collectibles: 800,
   /**
    * Returns summary status information about all "Records" (also known in the game
    * as "Triumphs". I know, it's confusing because there's also "Moments of Triumph"
    * that will themselves be represented as "Triumphs.")
    */
-  Records = 900,
+  Records: 900,
   /**
    * Returns information that Bungie considers to be "Transitory": data that may
    * change too frequently or come from a non-authoritative source such that we don't
@@ -8738,31 +8799,33 @@ export const enum DestinyComponentType {
    * limited use cases. We can provide no guarantee of timeliness nor consistency for
    * this data: buyer beware with the Transitory component.
    */
-  Transitory = 1000,
+  Transitory: 1000,
   /**
    * Returns summary status information about all "Metrics" (also known in the game
    * as "Stat Trackers").
    */
-  Metrics = 1100,
+  Metrics: 1100,
   /**
    * Returns a mapping of localized string variable hashes to values, on a per-
    * account or per-character basis.
    */
-  StringVariables = 1200,
+  StringVariables: 1200,
   /**
    * Returns summary status information about all "Craftables" aka crafting recipe
    * items.
    */
-  Craftables = 1300,
+  Craftables: 1300,
   /** Returns score values for all commendations and commendation nodes. */
-  SocialCommendations = 1400
-}
+  SocialCommendations: 1400
+} as const;
+export type DestinyComponentType = typeof DestinyComponentType[keyof typeof DestinyComponentType];
 
 /** Indicates the type of filter to apply to Vendor results. */
-export const enum DestinyVendorFilter {
-  None = 0,
-  ApiPurchasable = 1
-}
+export const DestinyVendorFilter = {
+  None: 0,
+  ApiPurchasable: 1
+} as const;
+export type DestinyVendorFilter = typeof DestinyVendorFilter[keyof typeof DestinyVendorFilter];
 
 export interface DestinyItemTransferRequest {
   /** Mapped to DestinyInventoryItemDefinition in the manifest. */
@@ -8890,32 +8953,34 @@ export interface DestinyReportOffensePgcrRequest {
  * directly (special cases apply to when they are returned, and are not relevant in
  * general cases)
  */
-export const enum DestinyStatsGroupType {
-  None = 0,
-  General = 1,
-  Weapons = 2,
-  Medals = 3,
+export const DestinyStatsGroupType = {
+  None: 0,
+  General: 1,
+  Weapons: 2,
+  Medals: 3,
   /**
    * This is purely to serve as the dividing line between filterable and un-
    * filterable groups. Below this number is a group you can pass as a filter. Above
    * it are groups used in very specific circumstances and not relevant for filtering.
    */
-  ReservedGroups = 100,
+  ReservedGroups: 100,
   /** Only applicable while generating leaderboards. */
-  Leaderboard = 101,
+  Leaderboard: 101,
   /** These will *only* be consumed by GetAggregateStatsByActivity */
-  Activity = 102,
+  Activity: 102,
   /** These are only consumed and returned by GetUniqueWeaponHistory */
-  UniqueWeapon = 103,
-  Internal = 104
-}
+  UniqueWeapon: 103,
+  Internal: 104
+} as const;
+export type DestinyStatsGroupType = typeof DestinyStatsGroupType[keyof typeof DestinyStatsGroupType];
 
-export const enum PeriodType {
-  None = 0,
-  Daily = 1,
-  AllTime = 2,
-  Activity = 3
-}
+export const PeriodType = {
+  None: 0,
+  Daily: 1,
+  AllTime: 2,
+  Activity: 3
+} as const;
+export type PeriodType = typeof PeriodType[keyof typeof PeriodType];
 
 export interface AwaPermissionRequested {
   /** Type of advanced write action. */
@@ -9238,12 +9303,13 @@ export interface DestinyItemComponent {
   readonly itemValueVisibility?: boolean[];
 }
 
-export const enum ItemBindStatus {
-  NotBound = 0,
-  BoundToCharacter = 1,
-  BoundToAccount = 2,
-  BoundToGuild = 3
-}
+export const ItemBindStatus = {
+  NotBound: 0,
+  BoundToCharacter: 1,
+  BoundToAccount: 2,
+  BoundToGuild: 3
+} as const;
+export type ItemBindStatus = typeof ItemBindStatus[keyof typeof ItemBindStatus];
 
 /**
  * Whether you can transfer an item, and why not if you can't.
@@ -9251,22 +9317,23 @@ export const enum ItemBindStatus {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum TransferStatuses {
+export const TransferStatuses = {
   /** The item can be transferred. */
-  CanTransfer = 0,
+  CanTransfer: 0,
   /** You can't transfer the item because it is equipped on a character. */
-  ItemIsEquipped = 1,
+  ItemIsEquipped: 1,
   /**
    * The item is defined as not transferrable in its DestinyInventoryItemDefinition.
    * nonTransferrable property.
    */
-  NotTransferrable = 2,
+  NotTransferrable: 2,
   /**
    * You could transfer the item, but the place you're trying to put it has run out
    * of room! Check your remaining Vault and/or character space.
    */
-  NoRoomInDestination = 4
-}
+  NoRoomInDestination: 4
+} as const;
+export type TransferStatuses = typeof TransferStatuses[keyof typeof TransferStatuses];
 
 /**
  * Returns data about a character's status with a given Objective. Combine with
@@ -9336,22 +9403,23 @@ export interface DestinyObjectiveProgress {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum DestinyGameVersions {
-  None = 0,
-  Destiny2 = 1,
-  DLC1 = 2,
-  DLC2 = 4,
-  Forsaken = 8,
-  YearTwoAnnualPass = 16,
-  Shadowkeep = 32,
-  BeyondLight = 64,
-  Anniversary30th = 128,
-  TheWitchQueen = 256,
-  Lightfall = 512,
-  TheFinalShape = 1024,
-  EdgeOfFate = 2048,
-  Renegades = 4096
-}
+export const DestinyGameVersions = {
+  None: 0,
+  Destiny2: 1,
+  DLC1: 2,
+  DLC2: 4,
+  Forsaken: 8,
+  YearTwoAnnualPass: 16,
+  Shadowkeep: 32,
+  BeyondLight: 64,
+  Anniversary30th: 128,
+  TheWitchQueen: 256,
+  Lightfall: 512,
+  TheFinalShape: 1024,
+  EdgeOfFate: 2048,
+  Renegades: 4096
+} as const;
+export type DestinyGameVersions = typeof DestinyGameVersions[keyof typeof DestinyGameVersions];
 
 /**
  * If a Destiny Profile can't be returned, but we're pretty certain it's a valid
@@ -9646,11 +9714,12 @@ export interface DestinyVendorReceipt {
  * A set of flags for reason(s) why the component populated in the way that it did.
  * Inspect the individual flags for the reasons.
  */
-export const enum ComponentPrivacySetting {
-  None = 0,
-  Public = 1,
-  Private = 2
-}
+export const ComponentPrivacySetting = {
+  None: 0,
+  Public: 1,
+  Private: 2
+} as const;
+export type ComponentPrivacySetting = typeof ComponentPrivacySetting[keyof typeof ComponentPrivacySetting];
 
 /**
  * A list of minimal information for items in an inventory: be it a character's
@@ -10153,16 +10222,17 @@ export interface DestinyPresentationNodeComponent {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum DestinyPresentationNodeState {
-  None = 0,
+export const DestinyPresentationNodeState = {
+  None: 0,
   /**
    * If this is set, the game recommends that you not show this node. But you know
    * your life, do what you've got to do.
    */
-  Invisible = 1,
+  Invisible: 1,
   /** Turns out Presentation Nodes can also be obscured. If they are, this is set. */
-  Obscured = 2
-}
+  Obscured: 2
+} as const;
+export type DestinyPresentationNodeState = typeof DestinyPresentationNodeState[keyof typeof DestinyPresentationNodeState];
 
 export interface DestinyProfileRecordsComponent {
   /** Your 'active' Triumphs score, maintained for backwards compatibility. */
@@ -10224,42 +10294,43 @@ export interface DestinyRecordComponent {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum DestinyRecordState {
+export const DestinyRecordState = {
   /**
    * If there are no flags set, the record is in a state where it *could* be redeemed,
    * but it has not been yet.
    */
-  None = 0,
+  None: 0,
   /** If this is set, the completed record has been redeemed. */
-  RecordRedeemed = 1,
+  RecordRedeemed: 1,
   /**
    * If this is set, there's a reward available from this Record but it's unavailable
    * for redemption.
    */
-  RewardUnavailable = 2,
+  RewardUnavailable: 2,
   /** If this is set, the objective for this Record has not yet been completed. */
-  ObjectiveNotCompleted = 4,
+  ObjectiveNotCompleted: 4,
   /**
    * If this is set, the game recommends that you replace the display text of this
    * Record with DestinyRecordDefinition.stateInfo.obscuredDescription.
    */
-  Obscured = 8,
+  Obscured: 8,
   /**
    * If this is set, the game recommends that you not show this record. Do what you
    * will with this recommendation.
    */
-  Invisible = 16,
+  Invisible: 16,
   /**
    * If this is set, you can't complete this record because you lack some permission
    * that's required to complete it.
    */
-  EntitlementUnowned = 32,
+  EntitlementUnowned: 32,
   /**
    * If this is set, the record has a title (check DestinyRecordDefinition for title
    * info) and you can equip it.
    */
-  CanEquipTitle = 64
-}
+  CanEquipTitle: 64
+} as const;
+export type DestinyRecordState = typeof DestinyRecordState[keyof typeof DestinyRecordState];
 
 export interface DestinyProfileCollectiblesComponent {
   /**
@@ -10322,17 +10393,17 @@ export interface DestinyCollectibleComponent {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum DestinyCollectibleState {
-  None = 0,
+export const DestinyCollectibleState = {
+  None: 0,
   /** If this flag is set, you have not yet obtained this collectible. */
-  NotAcquired = 1,
+  NotAcquired: 1,
   /**
    * If this flag is set, the item is "obscured" to you: you can/should use the
    * alternate item hash found in DestinyCollectibleDefinition.stateInfo.
    * obscuredOverrideItemHash when displaying this collectible instead of the default
    * display info.
    */
-  Obscured = 2,
+  Obscured: 2,
   /**
    * If this flag is set, the collectible should not be shown to the user.
    *
@@ -10345,29 +10416,30 @@ export const enum DestinyCollectibleState {
    * I wouldn't like to see happen. So please, whether or not I'm your mom, consider
    * honoring this flag and don't show people invisible collectibles.
    */
-  Invisible = 4,
+  Invisible: 4,
   /**
    * If this flag is set, the collectible requires payment for creating an instance
    * of the item, and you are lacking in currency. Bring the benjamins next time. Or
    * spinmetal. Whatever.
    */
-  CannotAffordMaterialRequirements = 8,
+  CannotAffordMaterialRequirements: 8,
   /**
    * If this flag is set, you can't pull this item out of your collection because
    * there's no room left in your inventory.
    */
-  InventorySpaceUnavailable = 16,
+  InventorySpaceUnavailable: 16,
   /**
    * If this flag is set, you already have one of these items and can't have a second
    * one.
    */
-  UniquenessViolation = 32,
+  UniquenessViolation: 32,
   /**
    * If this flag is set, the ability to pull this item out of your collection has
    * been disabled.
    */
-  PurchaseDisabled = 64
-}
+  PurchaseDisabled: 64
+} as const;
+export type DestinyCollectibleState = typeof DestinyCollectibleState[keyof typeof DestinyCollectibleState];
 
 /**
  * This is an experimental set of data that Bungie considers to be "transitory" -
@@ -10447,12 +10519,12 @@ export interface DestinyProfileTransitoryPartyMember {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum DestinyPartyMemberStates {
-  None = 0,
+export const DestinyPartyMemberStates = {
+  None: 0,
   /** This one's pretty obvious - they're on your Fireteam. */
-  FireteamMember = 1,
+  FireteamMember: 1,
   /** I don't know what it means to be in a 'Posse', but apparently this is it. */
-  PosseMember = 2,
+  PosseMember: 2,
   /**
    * Nor do I understand the difference between them being in a 'Group' vs. a '
    * Fireteam'.
@@ -10460,10 +10532,11 @@ export const enum DestinyPartyMemberStates {
    * I'll update these docs once I get more info. If I get more info. If you're
    * reading this, I never got more info. You're on your own, kid.
    */
-  GroupMember = 4,
+  GroupMember: 4,
   /** This person is the party leader. */
-  PartyLeader = 8
-}
+  PartyLeader: 8
+} as const;
+export type DestinyPartyMemberStates = typeof DestinyPartyMemberStates[keyof typeof DestinyPartyMemberStates];
 
 /**
  * If you are playing in an activity, this is some information about it.
@@ -10514,13 +10587,14 @@ export interface DestinyProfileTransitoryJoinability {
  * A player can choose to restrict requests to join their Fireteam to specific
  * states. These are the possible states a user can choose.
  */
-export const enum DestinyGamePrivacySetting {
-  Open = 0,
-  ClanAndFriendsOnly = 1,
-  FriendsOnly = 2,
-  InvitationOnly = 3,
-  Closed = 4
-}
+export const DestinyGamePrivacySetting = {
+  Open: 0,
+  ClanAndFriendsOnly: 1,
+  FriendsOnly: 2,
+  InvitationOnly: 3,
+  Closed: 4
+} as const;
+export type DestinyGamePrivacySetting = typeof DestinyGamePrivacySetting[keyof typeof DestinyGamePrivacySetting];
 
 /**
  * A Flags enumeration representing the reasons why a person can't join this user's
@@ -10529,28 +10603,29 @@ export const enum DestinyGamePrivacySetting {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum DestinyJoinClosedReasons {
-  None = 0,
+export const DestinyJoinClosedReasons = {
+  None: 0,
   /** The user is currently in matchmaking. */
-  InMatchmaking = 1,
+  InMatchmaking: 1,
   /** The user is currently in a loading screen. */
-  Loading = 2,
+  Loading: 2,
   /** The user is in an activity that requires solo play. */
-  SoloMode = 4,
+  SoloMode: 4,
   /**
    * The user can't be joined for one of a variety of internal reasons. Basically,
    * the game can't let you join at this time, but for reasons that aren't under the
    * control of this user.
    */
-  InternalReasons = 8,
+  InternalReasons: 8,
   /**
    * The user's current activity/quest/other transitory game state is preventing
    * joining.
    */
-  DisallowedByGameState = 16,
+  DisallowedByGameState: 16,
   /** The user appears to be offline. */
-  Offline = 32768
-}
+  Offline: 32768
+} as const;
+export type DestinyJoinClosedReasons = typeof DestinyJoinClosedReasons[keyof typeof DestinyJoinClosedReasons];
 
 /**
  * This represents a single "thing" being tracked by the player.
@@ -10869,12 +10944,13 @@ export interface DestinyRaceDefinition {
   readonly redacted: boolean;
 }
 
-export const enum DestinyRace {
-  Human = 0,
-  Awoken = 1,
-  Exo = 2,
-  Unknown = 3
-}
+export const DestinyRace = {
+  Human: 0,
+  Awoken: 1,
+  Exo: 2,
+  Unknown: 3
+} as const;
+export type DestinyRace = typeof DestinyRace[keyof typeof DestinyRace];
 
 export interface DestinyLoadoutsComponent {
   readonly loadouts: DestinyLoadoutComponent[];
@@ -11398,51 +11474,53 @@ export interface DestinyMilestoneDefinition {
  * If for some reason the indicated property is not populated, fall back to the
  * MilestoneDefinition.displayProperties.
  */
-export const enum DestinyMilestoneDisplayPreference {
+export const DestinyMilestoneDisplayPreference = {
   /**
    * Indicates you should show DestinyMilestoneDefinition.displayProperties for this
    * Milestone.
    */
-  MilestoneDefinition = 0,
+  MilestoneDefinition: 0,
   /**
    * Indicates you should show the displayProperties for any currently active Quest
    * Steps in DestinyMilestone.availableQuests.
    */
-  CurrentQuestSteps = 1,
+  CurrentQuestSteps: 1,
   /**
    * Indicates you should show the displayProperties for any currently active
    * Activities and their Challenges in DestinyMilestone.activities.
    */
-  CurrentActivityChallenges = 2
-}
+  CurrentActivityChallenges: 2
+} as const;
+export type DestinyMilestoneDisplayPreference = typeof DestinyMilestoneDisplayPreference[keyof typeof DestinyMilestoneDisplayPreference];
 
 /**
  * The type of milestone. Milestones can be Tutorials, one-time/triggered/non-
  * repeating but not necessarily tutorials, or Repeating Milestones.
  */
-export const enum DestinyMilestoneType {
-  Unknown = 0,
+export const DestinyMilestoneType = {
+  Unknown: 0,
   /**
    * One-time milestones that are specifically oriented toward teaching players about
    * new mechanics and gameplay modes.
    */
-  Tutorial = 1,
+  Tutorial: 1,
   /** Milestones that, once completed a single time, can never be repeated. */
-  OneTime = 2,
+  OneTime: 2,
   /**
    * Milestones that repeat/reset on a weekly basis. They need not all reset on the
    * same day or time, but do need to reset weekly to qualify for this type.
    */
-  Weekly = 3,
+  Weekly: 3,
   /** Milestones that repeat or reset on a daily basis. */
-  Daily = 4,
+  Daily: 4,
   /**
    * Special indicates that the event is not on a daily/weekly cadence, but does
    * occur more than once. For instance, Iron Banner in Destiny 1 or the Dawning were
    * examples of what could be termed "Special" events.
    */
-  Special = 5
-}
+  Special: 5
+} as const;
+export type DestinyMilestoneType = typeof DestinyMilestoneType[keyof typeof DestinyMilestoneType];
 
 /**
  * Any data we need to figure out whether this Quest Item is the currently active
@@ -12427,27 +12505,29 @@ export interface DestinyActivity {
  * An enumeration representing the potential difficulty levels of an activity.
  * Their names are... more qualitative than quantitative.
  */
-export const enum DestinyActivityDifficultyTier {
-  Trivial = 0,
-  Easy = 1,
-  Normal = 2,
-  Challenging = 3,
-  Hard = 4,
-  Brave = 5,
-  AlmostImpossible = 6,
-  Impossible = 7
-}
+export const DestinyActivityDifficultyTier = {
+  Trivial: 0,
+  Easy: 1,
+  Normal: 2,
+  Challenging: 3,
+  Hard: 4,
+  Brave: 5,
+  AlmostImpossible: 6,
+  Impossible: 7
+} as const;
+export type DestinyActivityDifficultyTier = typeof DestinyActivityDifficultyTier[keyof typeof DestinyActivityDifficultyTier];
 
 export interface DestinyActivityRewardMapping {
   readonly displayBehavior: DestinyActivityRewardDisplayMode;
   readonly rewardItems: DestinyActivityRewardItem[];
 }
 
-export const enum DestinyActivityRewardDisplayMode {
-  Aggregate = 0,
-  PickFirst = 1,
-  Count = 2
-}
+export const DestinyActivityRewardDisplayMode = {
+  Aggregate: 0,
+  PickFirst: 1,
+  Count: 2
+} as const;
+export type DestinyActivityRewardDisplayMode = typeof DestinyActivityRewardDisplayMode[keyof typeof DestinyActivityRewardDisplayMode];
 
 export interface DestinyActivityRewardItem {
   readonly itemQuantity: DestinyItemQuantity;
@@ -12778,20 +12858,20 @@ export interface DestinyUnlockDefinition {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum EquipFailureReason {
+export const EquipFailureReason = {
   /** The item is/was able to be equipped. */
-  None = 0,
+  None: 0,
   /**
    * This is not the kind of item that can be equipped. Did you try equipping Glimmer
    * or something?
    */
-  ItemUnequippable = 1,
+  ItemUnequippable: 1,
   /**
    * This item is part of a "unique set", and you can't have more than one item of
    * that same set type equipped at once. For instance, if you already have an Exotic
    * Weapon equipped, you can't equip a second one in another weapon slot.
    */
-  ItemUniqueEquipRestricted = 2,
+  ItemUniqueEquipRestricted: 2,
   /**
    * This item has state-based gating that prevents it from being equipped in certain
    * circumstances. For instance, an item might be for Warlocks only and you're a
@@ -12800,24 +12880,25 @@ export const enum EquipFailureReason {
    * more information about what the specific failure case was (See
    * DestinyInventoryItemDefinition and DestinyItemInstanceComponent)
    */
-  ItemFailedUnlockCheck = 4,
+  ItemFailedUnlockCheck: 4,
   /**
    * This item requires you to have reached a specific character level in order to
    * equip it, and you haven't reached that level yet.
    */
-  ItemFailedLevelCheck = 8,
+  ItemFailedLevelCheck: 8,
   /**
    * This item is 'wrapped' and must be unwrapped before being equipped. NOTE: This
    * value used to be called ItemNotOnCharacter but that is no longer accurate.
    */
-  ItemWrapped = 16,
+  ItemWrapped: 16,
   /** This item is not yet loaded and cannot be equipped yet. */
-  ItemNotLoaded = 32,
+  ItemNotLoaded: 32,
   /** This item is block-listed and cannot be equipped. */
-  ItemEquipBlocklisted = 64,
+  ItemEquipBlocklisted: 64,
   /** This item does not meet the loadout requirements for the current activity */
-  ItemLoadoutRequirementNotMet = 128
-}
+  ItemLoadoutRequirementNotMet: 128
+} as const;
+export type EquipFailureReason = typeof EquipFailureReason[keyof typeof EquipFailureReason];
 
 export interface DestinyItemInstanceEnergy {
   /**
@@ -13158,22 +13239,23 @@ export interface DestinyTalentNode {
   readonly nodeStatsBlock: DestinyTalentNodeStatBlock;
 }
 
-export const enum DestinyTalentNodeState {
-  Invalid = 0,
-  CanUpgrade = 1,
-  NoPoints = 2,
-  NoPrerequisites = 3,
-  NoSteps = 4,
-  NoUnlock = 5,
-  NoMaterial = 6,
-  NoGridLevel = 7,
-  SwappingLocked = 8,
-  MustSwap = 9,
-  Complete = 10,
-  Unknown = 11,
-  CreationOnly = 12,
-  Hidden = 13
-}
+export const DestinyTalentNodeState = {
+  Invalid: 0,
+  CanUpgrade: 1,
+  NoPoints: 2,
+  NoPrerequisites: 3,
+  NoSteps: 4,
+  NoUnlock: 5,
+  NoMaterial: 6,
+  NoGridLevel: 7,
+  SwappingLocked: 8,
+  MustSwap: 9,
+  Complete: 10,
+  Unknown: 11,
+  CreationOnly: 12,
+  Hidden: 13
+} as const;
+export type DestinyTalentNodeState = typeof DestinyTalentNodeState[keyof typeof DestinyTalentNodeState];
 
 /**
  * This property has some history. A talent grid can provide stats on both the item
@@ -13789,27 +13871,28 @@ export interface DestinyVendorSaleItemComponent {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum VendorItemStatus {
-  Success = 0,
-  NoInventorySpace = 1,
-  NoFunds = 2,
-  NoProgression = 4,
-  NoUnlock = 8,
-  NoQuantity = 16,
-  OutsidePurchaseWindow = 32,
-  NotAvailable = 64,
-  UniquenessViolation = 128,
-  UnknownError = 256,
-  AlreadySelling = 512,
-  Unsellable = 1024,
-  SellingInhibited = 2048,
+export const VendorItemStatus = {
+  Success: 0,
+  NoInventorySpace: 1,
+  NoFunds: 2,
+  NoProgression: 4,
+  NoUnlock: 8,
+  NoQuantity: 16,
+  OutsidePurchaseWindow: 32,
+  NotAvailable: 64,
+  UniquenessViolation: 128,
+  UnknownError: 256,
+  AlreadySelling: 512,
+  Unsellable: 1024,
+  SellingInhibited: 2048,
   /**
    * DEPRECATED - Owned items use the NoUnlock state and a failure string indicating
    * the proper display state.
    */
-  AlreadyOwned = 4096,
-  DisplayOnly = 8192
-}
+  AlreadyOwned: 4096,
+  DisplayOnly: 8192
+} as const;
+export type VendorItemStatus = typeof VendorItemStatus[keyof typeof VendorItemStatus];
 
 /**
  * Indicates the status of an "Unlock Flag" on a Character or Profile.
@@ -13841,76 +13924,77 @@ export interface DestinyUnlockStatus {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum DestinyVendorItemState {
+export const DestinyVendorItemState = {
   /** There are no augments on the item. */
-  None = 0,
+  None: 0,
   /**
    * Deprecated forever (probably). There was a time when Records were going to be
    * implemented through Vendors, and this field was relevant. Now they're
    * implemented through Presentation Nodes, and this field doesn't matter anymore.
    */
-  Incomplete = 1,
+  Incomplete: 1,
   /**
    * Deprecated forever (probably). See the description of the "Incomplete" value for
    * the juicy scoop.
    */
-  RewardAvailable = 2,
+  RewardAvailable: 2,
   /**
    * Deprecated forever (probably). See the description of the "Incomplete" value for
    * the juicy scoop.
    */
-  Complete = 4,
+  Complete: 4,
   /**
    * This item is considered to be "newly available", and should have some UI showing
    * how shiny it is.
    */
-  New = 8,
+  New: 8,
   /**
    * This item is being "featured", and should be shiny in a different way from items
    * that are merely new.
    */
-  Featured = 16,
+  Featured: 16,
   /** This item is only available for a limited time, and that time is approaching. */
-  Ending = 32,
+  Ending: 32,
   /** This item is "on sale". Get it while it's hot. */
-  OnSale = 64,
+  OnSale: 64,
   /** This item is already owned. */
-  Owned = 128,
+  Owned: 128,
   /** This item should be shown with a "wide view" instead of normal icon view. */
-  WideView = 256,
+  WideView: 256,
   /**
    * This indicates that you should show some kind of attention-requesting indicator
    * on the item, in a similar manner to items in the nexus that have such
    * notifications.
    */
-  NexusAttention = 512,
+  NexusAttention: 512,
   /** This indicates that the item has some sort of a 'set' discount. */
-  SetDiscount = 1024,
+  SetDiscount: 1024,
   /** This indicates that the item has a price drop. */
-  PriceDrop = 2048,
+  PriceDrop: 2048,
   /** This indicates that the item is a daily offer. */
-  DailyOffer = 4096,
+  DailyOffer: 4096,
   /** This indicates that the item is for charity. */
-  Charity = 8192,
+  Charity: 8192,
   /** This indicates that the item has a seasonal reward expiration. */
-  SeasonalRewardExpiration = 16384,
+  SeasonalRewardExpiration: 16384,
   /** This indicates that the sale item is the best deal among different choices. */
-  BestDeal = 32768,
+  BestDeal: 32768,
   /** This indicates that the sale item is popular. */
-  Popular = 65536,
+  Popular: 65536,
   /** This indicates that the sale item is free. */
-  Free = 131072,
+  Free: 131072,
   /** This indicates that the sale item is locked. */
-  Locked = 262144,
+  Locked: 262144,
   /** This indicates that the sale item is paracausal. */
-  Paracausal = 524288,
-  Cryptarch = 1048576,
-  ArtifactPerkOwned = 2097152,
-  Savings = 4194304,
-  Ineligible = 8388608,
-  ArtifactPerkBoosted = 16777216,
-  SeasonalArchiveFree = 33554432
-}
+  Paracausal: 524288,
+  Cryptarch: 1048576,
+  ArtifactPerkOwned: 2097152,
+  Savings: 4194304,
+  Ineligible: 8388608,
+  ArtifactPerkBoosted: 16777216,
+  SeasonalArchiveFree: 33554432
+} as const;
+export type DestinyVendorItemState = typeof DestinyVendorItemState[keyof typeof DestinyVendorItemState];
 
 export interface DestinyVendorItemComponentSetOfint32 {
   readonly itemComponents: DictionaryComponentResponse<DestinyItemComponent>;
@@ -14212,10 +14296,11 @@ export interface DestinyInsertPlugsRequestEntry {
  * talking about. You have to know whether it's in the default "socketEntries" or
  * if it's in the "intrinsic" list.
  */
-export const enum DestinySocketArrayType {
-  Default = 0,
-  Intrinsic = 1
-}
+export const DestinySocketArrayType = {
+  Default: 0,
+  Intrinsic: 1
+} as const;
+export type DestinySocketArrayType = typeof DestinySocketArrayType[keyof typeof DestinySocketArrayType];
 
 export interface DestinyItemChangeResponse {
   readonly item: DestinyItemResponse;
@@ -14482,63 +14567,66 @@ export interface DestinyHistoricalStatsDefinition {
   readonly medalTierHash?: number;
 }
 
-export const enum DestinyStatsCategoryType {
-  None = 0,
-  Kills = 1,
-  Assists = 2,
-  Deaths = 3,
-  Criticals = 4,
-  KDa = 5,
-  KD = 6,
-  Score = 7,
-  Entered = 8,
-  TimePlayed = 9,
-  MedalWins = 10,
-  MedalGame = 11,
-  MedalSpecialKills = 12,
-  MedalSprees = 13,
-  MedalMultiKills = 14,
-  MedalAbilities = 15
-}
+export const DestinyStatsCategoryType = {
+  None: 0,
+  Kills: 1,
+  Assists: 2,
+  Deaths: 3,
+  Criticals: 4,
+  KDa: 5,
+  KD: 6,
+  Score: 7,
+  Entered: 8,
+  TimePlayed: 9,
+  MedalWins: 10,
+  MedalGame: 11,
+  MedalSpecialKills: 12,
+  MedalSprees: 13,
+  MedalMultiKills: 14,
+  MedalAbilities: 15
+} as const;
+export type DestinyStatsCategoryType = typeof DestinyStatsCategoryType[keyof typeof DestinyStatsCategoryType];
 
-export const enum UnitType {
-  None = 0,
+export const UnitType = {
+  None: 0,
   /** Indicates the statistic is a simple count of something. */
-  Count = 1,
+  Count: 1,
   /** Indicates the statistic is a per game average. */
-  PerGame = 2,
+  PerGame: 2,
   /** Indicates the number of seconds */
-  Seconds = 3,
+  Seconds: 3,
   /** Indicates the number of points earned */
-  Points = 4,
+  Points: 4,
   /** Values represents a team ID */
-  Team = 5,
+  Team: 5,
   /** Values represents a distance (units to-be-determined) */
-  Distance = 6,
+  Distance: 6,
   /** Ratio represented as a whole value from 0 to 100. */
-  Percent = 7,
+  Percent: 7,
   /** Ratio of something, shown with decimal places */
-  Ratio = 8,
+  Ratio: 8,
   /** True or false */
-  Boolean = 9,
+  Boolean: 9,
   /** The stat is actually a weapon type. */
-  WeaponType = 10,
+  WeaponType: 10,
   /** Indicates victory, defeat, or something in between. */
-  Standing = 11,
+  Standing: 11,
   /** Number of milliseconds some event spanned. For example, race time, or lap time. */
-  Milliseconds = 12,
+  Milliseconds: 12,
   /** The value is a enumeration of the Completion Reason type. */
-  CompletionReason = 13
-}
+  CompletionReason: 13
+} as const;
+export type UnitType = typeof UnitType[keyof typeof UnitType];
 
-export const enum DestinyStatsMergeMethod {
+export const DestinyStatsMergeMethod = {
   /** When collapsing multiple instances of the stat together, add the values. */
-  Add = 0,
+  Add: 0,
   /** When collapsing multiple instances of the stat together, take the lower value. */
-  Min = 1,
+  Min: 1,
   /** When collapsing multiple instances of the stat together, take the higher value. */
-  Max = 2
-}
+  Max: 2
+} as const;
+export type DestinyStatsMergeMethod = typeof DestinyStatsMergeMethod[keyof typeof DestinyStatsMergeMethod];
 
 /**
  * An artificial construct of our own creation, to try and put some order on top of
@@ -14991,11 +15079,12 @@ export interface DestinyPublicMilestoneVendor {
   readonly previewItemHash?: number;
 }
 
-export const enum AwaType {
-  None = 0,
+export const AwaType = {
+  None: 0,
   /** Insert plugs into sockets. */
-  InsertPlugs = 1
-}
+  InsertPlugs: 1
+} as const;
+export type AwaType = typeof AwaType[keyof typeof AwaType];
 
 export interface AwaInitializeResponse {
   /**
@@ -15007,11 +15096,12 @@ export interface AwaInitializeResponse {
   readonly sentToSelf: boolean;
 }
 
-export const enum AwaUserSelection {
-  None = 0,
-  Rejected = 1,
-  Approved = 2
-}
+export const AwaUserSelection = {
+  None: 0,
+  Rejected: 1,
+  Approved: 2
+} as const;
+export type AwaUserSelection = typeof AwaUserSelection[keyof typeof AwaUserSelection];
 
 export interface AwaAuthorizationResult {
   /**
@@ -15038,18 +15128,19 @@ export interface AwaAuthorizationResult {
   readonly membershipType: BungieMembershipType;
 }
 
-export const enum AwaResponseReason {
-  None = 0,
+export const AwaResponseReason = {
+  None: 0,
   /** User provided an answer */
-  Answered = 1,
+  Answered: 1,
   /**
    * The HTTP request timed out, a new request may be made and an answer may still be
    * provided.
    */
-  TimedOut = 2,
+  TimedOut: 2,
   /** This request was replaced by another request. */
-  Replaced = 3
-}
+  Replaced: 3
+} as const;
+export type AwaResponseReason = typeof AwaResponseReason[keyof typeof AwaResponseReason];
 
 /**
  * Represents the public-facing status of an activity: any data about what is
@@ -15476,33 +15567,36 @@ export interface DestinyFireteamFinderOptionGroupDefinition {
   readonly redacted: boolean;
 }
 
-export const enum FireteamFinderCodeOptionType {
-  None = 0,
-  ApplicationOnly = 1,
-  OnlineOnly = 2,
-  PlayerCount = 3,
-  Title = 4,
-  Tags = 5,
-  FinderActivityGraph = 6,
-  MicrophoneRequired = 7
-}
+export const FireteamFinderCodeOptionType = {
+  None: 0,
+  ApplicationOnly: 1,
+  OnlineOnly: 2,
+  PlayerCount: 3,
+  Title: 4,
+  Tags: 5,
+  FinderActivityGraph: 6,
+  MicrophoneRequired: 7
+} as const;
+export type FireteamFinderCodeOptionType = typeof FireteamFinderCodeOptionType[keyof typeof FireteamFinderCodeOptionType];
 
 /**
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum FireteamFinderOptionAvailability {
-  None = 0,
-  CreateListingBuilder = 1,
-  SearchListingBuilder = 2,
-  ListingViewer = 4,
-  LobbyViewer = 8
-}
+export const FireteamFinderOptionAvailability = {
+  None: 0,
+  CreateListingBuilder: 1,
+  SearchListingBuilder: 2,
+  ListingViewer: 4,
+  LobbyViewer: 8
+} as const;
+export type FireteamFinderOptionAvailability = typeof FireteamFinderOptionAvailability[keyof typeof FireteamFinderOptionAvailability];
 
-export const enum FireteamFinderOptionVisibility {
-  Always = 0,
-  ShowWhenChangedFromDefault = 1
-}
+export const FireteamFinderOptionVisibility = {
+  Always: 0,
+  ShowWhenChangedFromDefault: 1
+} as const;
+export type FireteamFinderOptionVisibility = typeof FireteamFinderOptionVisibility[keyof typeof FireteamFinderOptionVisibility];
 
 export interface DestinyFireteamFinderOptionCreatorSettings {
   readonly control: DestinyFireteamFinderOptionSettingsControl;
@@ -15514,28 +15608,30 @@ export interface DestinyFireteamFinderOptionSettingsControl {
   readonly maxSelectedItems: number;
 }
 
-export const enum FireteamFinderOptionControlType {
-  None = 0,
-  ValueCollection = 1,
-  RadioButton = 2
-}
+export const FireteamFinderOptionControlType = {
+  None: 0,
+  ValueCollection: 1,
+  RadioButton: 2
+} as const;
+export type FireteamFinderOptionControlType = typeof FireteamFinderOptionControlType[keyof typeof FireteamFinderOptionControlType];
 
 export interface DestinyFireteamFinderOptionSearcherSettings {
   readonly control: DestinyFireteamFinderOptionSettingsControl;
   readonly searchFilterType: FireteamFinderOptionSearchFilterType;
 }
 
-export const enum FireteamFinderOptionSearchFilterType {
-  None = 0,
-  All = 1,
-  Any = 2,
-  InRangeInclusive = 3,
-  InRangeExclusive = 4,
-  GreaterThan = 5,
-  GreaterThanOrEqualTo = 6,
-  LessThan = 7,
-  LessThanOrEqualTo = 8
-}
+export const FireteamFinderOptionSearchFilterType = {
+  None: 0,
+  All: 1,
+  Any: 2,
+  InRangeInclusive: 3,
+  InRangeExclusive: 4,
+  GreaterThan: 5,
+  GreaterThanOrEqualTo: 6,
+  LessThan: 7,
+  LessThanOrEqualTo: 8
+} as const;
+export type FireteamFinderOptionSearchFilterType = typeof FireteamFinderOptionSearchFilterType[keyof typeof FireteamFinderOptionSearchFilterType];
 
 export interface DestinyFireteamFinderOptionValues {
   readonly optionalNull: DestinyDisplayPropertiesDefinition;
@@ -15545,21 +15641,23 @@ export interface DestinyFireteamFinderOptionValues {
   readonly valueDefinitions: DestinyFireteamFinderOptionValueDefinition[];
 }
 
-export const enum FireteamFinderOptionDisplayFormat {
-  Text = 0,
-  Integer = 1,
-  Bool = 2,
-  FormatString = 3
-}
+export const FireteamFinderOptionDisplayFormat = {
+  Text: 0,
+  Integer: 1,
+  Bool: 2,
+  FormatString: 3
+} as const;
+export type FireteamFinderOptionDisplayFormat = typeof FireteamFinderOptionDisplayFormat[keyof typeof FireteamFinderOptionDisplayFormat];
 
-export const enum FireteamFinderOptionValueProviderType {
-  None = 0,
-  Values = 1,
-  PlayerCount = 2,
-  FireteamFinderLabels = 3,
-  FireteamFinderActivityGraph = 4,
-  FireteamFinderUIActivityTree = 5
-}
+export const FireteamFinderOptionValueProviderType = {
+  None: 0,
+  Values: 1,
+  PlayerCount: 2,
+  FireteamFinderLabels: 3,
+  FireteamFinderActivityGraph: 4,
+  FireteamFinderUIActivityTree: 5
+} as const;
+export type FireteamFinderOptionValueProviderType = typeof FireteamFinderOptionValueProviderType[keyof typeof FireteamFinderOptionValueProviderType];
 
 export interface DestinyFireteamFinderOptionValueDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
@@ -15575,11 +15673,12 @@ export interface DestinyFireteamFinderOptionValueDefinition {
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  */
-export const enum FireteamFinderOptionValueFlags {
-  None = 0,
-  CreateListingDefaultValue = 1,
-  SearchFilterDefaultValue = 2
-}
+export const FireteamFinderOptionValueFlags = {
+  None: 0,
+  CreateListingDefaultValue: 1,
+  SearchFilterDefaultValue: 2
+} as const;
+export type FireteamFinderOptionValueFlags = typeof FireteamFinderOptionValueFlags[keyof typeof FireteamFinderOptionValueFlags];
 
 export interface DestinyFireteamFinderLabelDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
@@ -15624,29 +15723,32 @@ export interface DestinyFireteamFinderLabelGroupDefinition {
   readonly redacted: boolean;
 }
 
-export const enum FireteamFinderLabelFieldType {
-  Title = 0,
-  Label = 1
-}
+export const FireteamFinderLabelFieldType = {
+  Title: 0,
+  Label: 1
+} as const;
+export type FireteamFinderLabelFieldType = typeof FireteamFinderLabelFieldType[keyof typeof FireteamFinderLabelFieldType];
 
 export interface DestinyActivityGraphReference {
   /** Mapped to DestinyActivityGraphDefinition in the manifest. */
   readonly activityGraphHash: number;
 }
 
-export const enum DestinyActivityTreeType {
-  FireteamFinder = 0,
-  Curator = 1,
-  EventHome = 2,
-  SeasonHome = 3,
-  Count = 4
-}
+export const DestinyActivityTreeType = {
+  FireteamFinder: 0,
+  Curator: 1,
+  EventHome: 2,
+  SeasonHome: 3,
+  Count: 4
+} as const;
+export type DestinyActivityTreeType = typeof DestinyActivityTreeType[keyof typeof DestinyActivityTreeType];
 
-export const enum DestinyActivityTreeChildSortMode {
-  Investment = 0,
-  FocusFirst = 1,
-  BonusAndFocusFirst = 2
-}
+export const DestinyActivityTreeChildSortMode = {
+  Investment: 0,
+  FocusFirst: 1,
+  BonusAndFocusFirst: 2
+} as const;
+export type DestinyActivityTreeChildSortMode = typeof DestinyActivityTreeChildSortMode[keyof typeof DestinyActivityTreeChildSortMode];
 
 export interface DestinyInventoryItemConstantsDefinition {
   /** Gear tier overlay images */
