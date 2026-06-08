@@ -24,12 +24,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/DestinyItemManager/bungie-api-ts.git"
+    "url": "https://github.com/Taskeren/bungie-api-ts.git"
   },
   "author": "Ben Hollis",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DestinyItemManager/bungie-api-ts/issues"
+    "url": "https://github.com/Taskeren/bungie-api-ts/issues"
   },
   "keywords": [
     "Destiny",
@@ -37,7 +37,7 @@
     "Bungie.net",
     "TypeScript"
   ],
-  "homepage": "https://github.com/DestinyItemManager/bungie-api-ts",
+  "homepage": "https://github.com/Taskeren/bungie-api-ts",
   "devDependencies": {
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",
