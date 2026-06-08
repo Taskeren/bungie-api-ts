@@ -1,6 +1,6 @@
 {
   "name": "@taskeren/bungie-api-ts",
-  "version": "5.10.3",
+  "version": "5.10.4",
   "description": "TypeScript mappings for the Bungie.net API",
   "type": "module",
   "sideEffects": false,

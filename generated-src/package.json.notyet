@@ -1,6 +1,6 @@
 {
   "name": "@taskeren/bungie-api-ts",
-  "version": "5.10.3",
+  "version": "5.10.4",
   "description": "TypeScript mappings for the Bungie.net API",
   "type": "module",
   "sideEffects": false,
@@ -17,12 +17,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/DestinyItemManager/bungie-api-ts.git"
+    "url": "https://github.com/Taskeren/bungie-api-ts.git"
   },
   "author": "Ben Hollis",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DestinyItemManager/bungie-api-ts/issues"
+    "url": "https://github.com/Taskeren/bungie-api-ts/issues"
   },
   "keywords": [
     "Destiny",
@@ -30,7 +30,7 @@
     "Bungie.net",
     "TypeScript"
   ],
-  "homepage": "https://github.com/DestinyItemManager/bungie-api-ts",
+  "homepage": "https://github.com/Taskeren/bungie-api-ts",
   "devDependencies": {},
   "packageManager": "pnpm@8.15.9+sha512.499434c9d8fdd1a2794ebf4552b3b25c0a633abcee5bb15e7b5de90f32f47b513aca98cd5cfd001c31f0db454bc3804edccd578501e4ca293a6816166bbd9f81",
   "main": "./index.js",
